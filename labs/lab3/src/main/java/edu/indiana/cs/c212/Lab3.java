@@ -46,7 +46,7 @@ public class Lab3 {
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html 
 	 **/
 	public static int[] generateArray(int n) {
-		int[] arr = new int[n];
+		int[] arr = new int[0];
 
 		//FIXME
 
@@ -96,19 +96,19 @@ public class Lab3 {
 
 	/**
 	 * @param list
-	 * @param n
+	 * @param i
 	 * @return
 	 * 
 	 * isMemberOfArrayList is a method that takes an ArrayList<Integer>, list,
-	 * and an int, n, and checks to see if n is anywhere in list, returning true
-	 * if n is a member of list, and false otherwise.  
+	 * and an int, i, and checks to see if i is anywhere in list, returning true
+	 * if i is a member of list, and false otherwise.  
 	 * 
 	 * You should implement your solution using an Iterator.  
 	 * You should NOT use the contains method for ArrayLists to solve this problem!
-	 **/
-	public static boolean isMemberOfArrayList(ArrayList<Integer> list, int n) {
+	 */
+	public static boolean isMemberOfArrayList(ArrayList<Integer> list, int i) {
 		Iterator<Integer> itr = list.iterator();
-
+	
 		//FIXME
 
 		return false;
@@ -124,7 +124,7 @@ public class Lab3 {
 	 * if n is a member of the array, and false otherwise. 
 	 */
 	public static boolean isMemberOfArray(int[] arr, int i) {
-
+		
 		//FIXME
 
 		return false;
