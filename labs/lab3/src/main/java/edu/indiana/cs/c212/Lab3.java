@@ -106,12 +106,12 @@ public class Lab3 {
 	 * You should implement your solution using an Iterator.  
 	 * You should NOT use the contains method for ArrayLists to solve this problem!
 	 */
-	public static boolean isMemberOfArrayList(ArrayList<Integer> list, int i) {
+	public static Boolean isMemberOfArrayList(ArrayList<Integer> list, int i) {
 		Iterator<Integer> itr = list.iterator();
 	
 		//FIXME
-
-		return false;
+		
+		return null;
 	}
 
 	/**
@@ -123,11 +123,11 @@ public class Lab3 {
 	 * and checks to see if n is anywhere in the array, returning true
 	 * if n is a member of the array, and false otherwise. 
 	 */
-	public static boolean isMemberOfArray(int[] arr, int i) {
+	public static Boolean isMemberOfArray(int[] arr, int i) {
 		
 		//FIXME
 
-		return false;
+		return null;
 	}
 
 	/**
@@ -167,12 +167,13 @@ public class Lab3 {
 	 * existence you wish to determine in the given row. It should return true
 	 * if the number is anywhere in that row of the grid, and false otherwise.
 	 */
-	public static boolean isMemberOfGridRow(int[][] grid, int rowNumber, int number) {
+	public static Boolean isMemberOfGridRow(int[][] grid, int rowNumber, int number) {
 
 		//FIXME
 
-		return false;
+		return null;
 	}
+	
 	public static void main(String[] args){
 		// place code like the following here to do your own tests:
 		// printArrayList(generateArrayList(5));
