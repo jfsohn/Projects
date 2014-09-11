@@ -20,7 +20,7 @@ public class Lab3 {
 	 *      
 	 * For more information on ArrayLists see:
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
-	 **/
+	 */
 	public static ArrayList<Integer> generateArrayList(int n) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		
@@ -37,16 +37,16 @@ public class Lab3 {
 	 * of length n containing the numbers 1 through n in ascending order
 	 * 
 	 * Operations to know for arrays:
-	 * 	 Let arr be an array and x be an integer:
-	 *   	1. arr[i] = x will set the value of arr[i] to x
-	 *   	2. x = arr[i] will set the value of x to arr[i]
-	 *   	3. arr.length will return the size of the array
+	 * 	Let arr be an array and x be an integer:
+	 *   	  1. arr[i] = x will set the value of arr[i] to x
+	 *   	  2. x = arr[i] will set the value of x to arr[i]
+	 *   	  3. arr.length will return the size of the array
 	 *   
 	 * For more information on Arrays see: 
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html 
-	 **/
+	 */
 	public static int[] generateArray(int n) {
-		int[] arr = new int[n];
+		int[] arr = new int[0];
 
 		//FIXME
 
@@ -96,22 +96,22 @@ public class Lab3 {
 
 	/**
 	 * @param list
-	 * @param n
+	 * @param i
 	 * @return
 	 * 
 	 * isMemberOfArrayList is a method that takes an ArrayList<Integer>, list,
-	 * and an int, n, and checks to see if n is anywhere in list, returning true
-	 * if n is a member of list, and false otherwise.  
+	 * and an int, i, and checks to see if i is anywhere in list, returning true
+	 * if i is a member of list, and false otherwise.  
 	 * 
 	 * You should implement your solution using an Iterator.  
 	 * You should NOT use the contains method for ArrayLists to solve this problem!
-	 **/
-	public static boolean isMemberOfArrayList(ArrayList<Integer> list, int n) {
+	 */
+	public static Boolean isMemberOfArrayList(ArrayList<Integer> list, int i) {
 		Iterator<Integer> itr = list.iterator();
-
+	
 		//FIXME
-
-		return false;
+		
+		return null;
 	}
 
 	/**
@@ -123,11 +123,11 @@ public class Lab3 {
 	 * and checks to see if n is anywhere in the array, returning true
 	 * if n is a member of the array, and false otherwise. 
 	 */
-	public static boolean isMemberOfArray(int[] arr, int i) {
-
+	public static Boolean isMemberOfArray(int[] arr, int i) {
+		
 		//FIXME
 
-		return false;
+		return null;
 	}
 
 	/**
@@ -142,18 +142,18 @@ public class Lab3 {
 	 * Arrays in Java with with int[][].  A 2-Dimensional Array in Java can be thought
 	 * of like a grid, in which int[i][j] returns the int stored at row i, column j of
 	 * the grid, much as int[i] returns the int stored at position i in an Array.
-     *
+     	 *
 	 * Operations to know for arrays:
-	 * 	 Let grid be an int[][] and x, y, and z be ints:
-	 *   	1. grid[x][y] = z will set the value of grid[x][y] to z
-	 *   	2. z = grid[x][y] will set the value of z to grid[x][y]
-	 *      3. grid.length returns the length of the rows of grid.
+	 * 	Let grid be an int[][] and x, y, and z be ints:
+	 *   	  1. grid[x][y] = z will set the value of grid[x][y] to z
+	 *   	  2. z = grid[x][y] will set the value of z to grid[x][y]
+	 *        3. grid.length returns the length of the rows of grid.
 	 */
 	public static int[][] makeMultTable(int n) {
-
+		int[][] table = new int[0][0];
+		
 		//FIXME
 
-		int[][] table = new int[0][0];
 		return table;
 	}
 
@@ -167,12 +167,13 @@ public class Lab3 {
 	 * existence you wish to determine in the given row. It should return true
 	 * if the number is anywhere in that row of the grid, and false otherwise.
 	 */
-	public static boolean isMemberOfGridRow(int[][] grid, int rowNumber, int number) {
+	public static Boolean isMemberOfGridRow(int[][] grid, int rowNumber, int number) {
 
 		//FIXME
 
-		return false;
+		return null;
 	}
+	
 	public static void main(String[] args){
 		// place code like the following here to do your own tests:
 		// printArrayList(generateArrayList(5));

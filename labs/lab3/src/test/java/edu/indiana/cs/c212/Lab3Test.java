@@ -32,25 +32,25 @@ public class Lab3Test {
 		}
 	}
 
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArrayList1() {
 		list = Lab3.generateArrayList(20);
 		assertEquals(20, list.size());
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArrayList2() {
 		list = Lab3.generateArrayList(20);
 		assertEquals(1, (int) list.get(0));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArrayList3() {
 		list = Lab3.generateArrayList(20);
 		assertEquals(20, (int) list.get(19));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArrayList4() {
 		Random r = new Random();
 		int rand = r.nextInt(100);
@@ -59,7 +59,7 @@ public class Lab3Test {
 		assertEquals(index + 1, (int) list.get(index));	
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArrayList5() {
 		Random r = new Random();
 		int rand = r.nextInt(100);
@@ -68,25 +68,25 @@ public class Lab3Test {
 		assertEquals(index + 1, (int) list.get(index));	
 	}
 
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArray1() {
 		arr = Lab3.generateArray(20);	
 		assertEquals(20, arr.length);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArray2() {
 		arr = Lab3.generateArray(20);	
 		assertEquals(1, arr[0]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArray3() {
 		arr = Lab3.generateArray(20);	
 		assertEquals(20, arr[19]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArray4() {
 		Random r = new Random();
 		int rand = r.nextInt(100);
@@ -95,7 +95,7 @@ public class Lab3Test {
 		assertEquals(index + 1, (int) arr[index]);	
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testGenerateArray5() {
 		Random r = new Random();
 		int rand = r.nextInt(100);
@@ -104,71 +104,71 @@ public class Lab3Test {
 		assertEquals(index + 1, (int) arr[index]);	
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArrayList1() {
 		assertTrue(Lab3.isMemberOfArrayList(testList1, 10));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArrayList2() {
 		assertTrue(Lab3.isMemberOfArrayList(testList1, 20));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArrayList3() {
 		assertFalse(Lab3.isMemberOfArrayList(testList1, 0));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArrayList4() {
 		assertFalse(Lab3.isMemberOfArrayList(testList1, 21));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArray1() {
 		assertTrue(Lab3.isMemberOfArray(testArr1, 10));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArray2() {
 		assertTrue(Lab3.isMemberOfArray(testArr1, 20));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArray3() {
 		assertFalse(Lab3.isMemberOfArray(testArr1, 0));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfArray4() {
 		assertFalse(Lab3.isMemberOfArray(testArr1, 21));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable1() {
 		int[][] grid = Lab3.makeMultTable(10);
 		assertEquals(35, grid[4][6]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable2() {
 		int[][] grid = Lab3.makeMultTable(5);
 		assertEquals(25, grid[4][4]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable3() {
 		int[][] grid = Lab3.makeMultTable(1);
 		assertEquals(1, grid[0][0]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable4() {
 		int[][] grid = Lab3.makeMultTable(7);
 		assertEquals(6, grid[0][5]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable5() {
 		int[][] grid = Lab3.makeMultTable(15);
 		assertEquals(36, grid[8][3]);
@@ -184,7 +184,7 @@ public class Lab3Test {
 		assertEquals(256, grid[15][15]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable8() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 1;
@@ -197,7 +197,7 @@ public class Lab3Test {
 							" and got: " + grid[randRow][randCol]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable9() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 1;
@@ -210,7 +210,7 @@ public class Lab3Test {
 							" and got: " + grid[randRow][randCol]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable10() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 1;
@@ -223,7 +223,7 @@ public class Lab3Test {
 							" and got: " + grid[randRow][randCol]);
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testMakeMultTable11() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 1;
@@ -236,37 +236,37 @@ public class Lab3Test {
 							" and got: " + grid[randRow][randCol]);
 	}
 
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow1() {
 		assertTrue(Lab3.isMemberOfGridRow(testGrid1, 0, 75));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow2() {
 		assertTrue(Lab3.isMemberOfGridRow(testGrid1, 18, 74));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow3() {
 		assertFalse(Lab3.isMemberOfGridRow(testGrid1, 9, 68));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow4() {
 		assertTrue(Lab3.isMemberOfGridRow(testGrid1, 19, 19));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow5() {
 		assertFalse(Lab3.isMemberOfGridRow(testGrid1, 5, 101));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow6() {
 		assertFalse(Lab3.isMemberOfGridRow(testGrid1, 12, 3));
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow7() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 100;
@@ -278,7 +278,7 @@ public class Lab3Test {
 		testGrid1[randRow][randCol] = temp;
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow8() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 100;
@@ -290,7 +290,7 @@ public class Lab3Test {
 		testGrid1[randRow][randCol] = temp;
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow9() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 100;
@@ -302,7 +302,7 @@ public class Lab3Test {
 		testGrid1[randRow][randCol] = temp;
 	}
 	
-	@Test
+	@Test(timeout=1000)
 	public void testIsMemberOfGridRow10() {
 		Random r = new Random();
 		int rand = r.nextInt(100) + 100;
