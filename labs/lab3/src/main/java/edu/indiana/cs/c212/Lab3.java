@@ -20,7 +20,7 @@ public class Lab3 {
 	 *      
 	 * For more information on ArrayLists see:
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
-	 **/
+	 */
 	public static ArrayList<Integer> generateArrayList(int n) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		
@@ -37,14 +37,14 @@ public class Lab3 {
 	 * of length n containing the numbers 1 through n in ascending order
 	 * 
 	 * Operations to know for arrays:
-	 * 	 Let arr be an array and x be an integer:
-	 *   	1. arr[i] = x will set the value of arr[i] to x
-	 *   	2. x = arr[i] will set the value of x to arr[i]
-	 *   	3. arr.length will return the size of the array
+	 * 	Let arr be an array and x be an integer:
+	 *   	  1. arr[i] = x will set the value of arr[i] to x
+	 *   	  2. x = arr[i] will set the value of x to arr[i]
+	 *   	  3. arr.length will return the size of the array
 	 *   
 	 * For more information on Arrays see: 
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html 
-	 **/
+	 */
 	public static int[] generateArray(int n) {
 		int[] arr = new int[0];
 
@@ -142,18 +142,18 @@ public class Lab3 {
 	 * Arrays in Java with with int[][].  A 2-Dimensional Array in Java can be thought
 	 * of like a grid, in which int[i][j] returns the int stored at row i, column j of
 	 * the grid, much as int[i] returns the int stored at position i in an Array.
-     *
+     	 *
 	 * Operations to know for arrays:
-	 * 	 Let grid be an int[][] and x, y, and z be ints:
-	 *   	1. grid[x][y] = z will set the value of grid[x][y] to z
-	 *   	2. z = grid[x][y] will set the value of z to grid[x][y]
-	 *      3. grid.length returns the length of the rows of grid.
+	 * 	Let grid be an int[][] and x, y, and z be ints:
+	 *   	  1. grid[x][y] = z will set the value of grid[x][y] to z
+	 *   	  2. z = grid[x][y] will set the value of z to grid[x][y]
+	 *        3. grid.length returns the length of the rows of grid.
 	 */
 	public static int[][] makeMultTable(int n) {
-
+		int[][] table = new int[0][0];
+		
 		//FIXME
 
-		int[][] table = new int[0][0];
 		return table;
 	}
 
