@@ -6,7 +6,16 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class GridController{
-	
+
+    //Instance Variables
+
+    private Random randomNumberSource = new Random();
+    private final JComponent gui;
+
+    private int rowCount, columnCount;
+    private Grid grid;
+    private int centerRow, centerColumn, radius;
+
 	public GridController(int width, int height){
 	
 		gui = new JPanel();
@@ -18,7 +27,7 @@ public class GridController{
 		} else {
 			width = height;
 		}
-		
+
 		Grid grid = new Grid(new Dimension(width / tileSize,
 				height/ tileSize));
 		GridLayout layout = new GridLayout(width / tileSize,
@@ -236,14 +245,7 @@ public class GridController{
 	private boolean isEven(int number) {
 		return ((number % 2) == 0);
 	}
-	//Instance Variables
 
-	private Random randomNumberSource = new Random();
-	private final JComponent gui;
-	
-	private int rowCount, columnCount;
-	private Grid grid;
-	private int centerRow, centerColumn, radius;
 	
 	//Static Variables:
 	

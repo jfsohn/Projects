@@ -29,6 +29,11 @@ import java.util.List;
  */
 public class Grid extends AbstractGrid {
 
+
+    //Instance variables
+
+    protected Tile[][] gridArray;
+
 	public Grid(Dimension dim){
 		super(dim);
 		gridArray = super.tiles;
@@ -91,8 +96,5 @@ public class Grid extends AbstractGrid {
 	}
 
 
-    //Instance variables
-
-    protected Tile[][] gridArray;
 }
 

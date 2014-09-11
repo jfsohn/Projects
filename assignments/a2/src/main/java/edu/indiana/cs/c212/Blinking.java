@@ -5,7 +5,10 @@ import java.awt.*;
 
 public class Blinking implements Runnable {
 
-	public void create() {
+    private GridController controller;
+
+
+    public void create() {
 
 		JFrame frame = new JFrame("Blinker");
 		frame.setResizable(false);
@@ -51,7 +54,6 @@ public class Blinking implements Runnable {
 		(new Thread(new Blinking())).start();
 	}
 
-	private GridController controller;
 
 	public static final int UPDATES_PER_SECOND = 5;
 	public static final int MILLISECONDS_PER_SECOND = 1000;
@@ -59,6 +61,4 @@ public class Blinking implements Runnable {
 			/ UPDATES_PER_SECOND;
 	public static final int CYCLES_PER_LOOP = 5;
 	public static final int LOOPS_PER_RUN = 4;
-
-	public static final Color BACKGROUND_COLOR = Color.CYAN;
 }

@@ -4,6 +4,9 @@ import java.awt.*;
 
 public abstract class AbstractGrid implements Gridable {
 
+    protected final Dimension dim;
+    protected final Tile[][] tiles;
+
 	public AbstractGrid(Dimension dim){
 
 		int rows = (int) dim.getHeight();
@@ -19,7 +22,4 @@ public abstract class AbstractGrid implements Gridable {
 			}
 		}
 	}
-
-	protected final Dimension dim;
-	protected final Tile[][] tiles;
 }
