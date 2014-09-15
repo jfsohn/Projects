@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>a1</name>
-<<<<<<< HEAD
+	<name>lab3</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -10,14 +9,6 @@
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
-=======
-	<comment/>
-	<projects/>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments/>
->>>>>>> 5393829f9b632f78812aabbbe7cc5af6368f967e
 		</buildCommand>
 	</buildSpec>
 	<natures>
