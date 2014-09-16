@@ -44,6 +44,13 @@ public class Grid extends AbstractGrid {
     @Override
 	public Tile[] getRow(int rowNumber) {
 		//FIXME
+    	Tile[]number = new Tile[gridArray.length];
+    	for (int col = 0; col < gridArray.length; col++) {
+    		 number[col] = gridArray[rowNumber][col];
+    		 return number;
+    	}
+    	    
+
 	   // gridArray[rowNumber][col];
 
         return null; //Replace this with the correct return value
