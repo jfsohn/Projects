@@ -152,23 +152,31 @@ public class CalculatorController {
 				view.setDisplay("Error - expected a digit");
 			}
 		}
-		/* updateModel takes a String and checks to see what the previous 
-		 * operator was.  Depending on what that operator was, updateModel calls
-		 * the appropriate method on the operand.
-		 * 
-		 * In MVC style code the Controller class (C) will interact with other
-		 * classes, namely the Model class (M) and the View class (V).  
-		 */
-		private void updateModel(String operand) {
-			//FIXME
-		}
+		
 	}
 
+
+
+    /**
+     * updateModel takes a String and checks to see what the previous
+     * operator was.  Depending on what that operator was, updateModel calls
+     * the appropriate method on the operand for CalculatorModel.
+     *
+     * In MVC style code the Controller class (C) will interact with other
+     * classes, namely the Model class (M) and the View class (V).
+     * @param operand
+     */
+	public void updateModel(String operand) {
+		//FIXME
+	}
 	private void reset() {
 		previousOperator = "=";
 		isExpectingTheFirstDigitOfAnOperand = true;
 		model.setMemory("0");
 		view.setDisplay("0");
 		view.setHistory("");
+	}
+	protected void setPrevOperator(String op){
+		this.previousOperator = op;
 	}
 }

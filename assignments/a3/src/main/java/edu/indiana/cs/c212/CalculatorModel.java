@@ -93,10 +93,8 @@ public class CalculatorModel {
 	 * remainder of a divided by b. For example 11 % 4 = 3
 	 */
 	public String getMemory() {
-		
 		//FIXME
 		return "I'm broken, please fix me";
-
 	}
 
 	public void setMemory(String string) {

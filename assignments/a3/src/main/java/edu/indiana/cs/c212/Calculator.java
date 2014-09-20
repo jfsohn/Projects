@@ -3,7 +3,7 @@ package edu.indiana.cs.c212;
 import javax.swing.JFrame;
 
 /**
- * This applet creates the classes for a simple 4-function calculator.
+ * This application creates the classes for a simple 4-function calculator.
  * 
  * The calculator is spread over four classes instead of one class simply to
  * demonstrate a design pattern called Model-View-Controller. MVC is widely used
@@ -18,7 +18,7 @@ import javax.swing.JFrame;
  * dynamically changing data.
  * 
  * In the particular case of this assignment, though, one view might be a visual
- * calculator applet and another view might be a command-line calculator. It's
+ * calculator application and another view might be a command-line calculator. It's
  * irrelevant to the Model whether the user is entering commands by typing on a
  * keyboard and seeing output on the command line or by pressing buttons
  * displayed on a screen using a mouse (or by pressing buttons by typing keys on
