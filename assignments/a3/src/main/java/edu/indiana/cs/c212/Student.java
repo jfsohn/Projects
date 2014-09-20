@@ -62,18 +62,31 @@ public class Student{
     public void setId(UUID id){
         //FIXME Change the student's ID to id
     }
-    
-   
+
+
+
     /**
-     * Checks to see if this student is the same as another student. 
+     * Checks to see if this student is the same as another student.
      * Returns true if this student is the same as the other student and false otherwise.
-     * 
+     *
      * Note: you do not need to write or modify any part of this method.
-     * 
+     *
      * @param other
      * @return
      */
-    public boolean equals(Student other){
-    	return ((this.getId().equals(other.getId())) && (this.getName().equals(other.getName())));
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+
+        Student student = (Student) other;
+
+        if (!getId().equals(student.getId())) return false;
+        if (!getName().equals(student.getName())) return false;
+
+        return true;
     }
+
+
+
 }

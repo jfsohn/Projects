@@ -164,5 +164,5 @@ public class Course {
      * The maximum number of students allowed to be enrolled in the class at a given time.
      * Does it matter that this is static?
      */
-    public static final int COURSE_ENROLLMENT_LIMIT = 90; 
+    public static final int COURSE_ENROLLMENT_LIMIT = 90;
 }
