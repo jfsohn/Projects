@@ -12,7 +12,8 @@ public class Student{
 
 	
     /**
-     * This constructor should create a student without a name (name should be null)
+     * This constructor should create a student without a name. The name is null by default, so
+     * you don't need to change that.
      */
     public Student(){
     	//FIXME
