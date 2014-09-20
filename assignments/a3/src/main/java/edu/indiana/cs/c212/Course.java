@@ -9,7 +9,7 @@ public class Course {
     private UUID          id;
 
     public Course() {
-        students = new ArrayList<>(); //Leave this be.
+        students = new ArrayList<Student>(); //Leave this be.
         //FIXME Set the value of id to be a random UUID
     }
 
