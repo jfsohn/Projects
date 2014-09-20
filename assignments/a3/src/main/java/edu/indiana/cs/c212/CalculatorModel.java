@@ -15,8 +15,8 @@ public class CalculatorModel {
      * 2. You need to return integer values	as integers in your String (no decimals).
      * For example: 6.0/3.0 should return 2 and not 2.0
      *
-     * You will need to know Double.toString() or Long.toString() which takes a
-     * double or a long, converts it to a String, and gives you back that String.
+     * You will need to know Double.toString() and Long.toString().  These methods take a
+     * double or a long, convert it to a String, and then give you back that String.
      *
      * You may also want to make use of %. a % b gives you the
      * remainder of a divided by b. For example 11 % 4 = 3

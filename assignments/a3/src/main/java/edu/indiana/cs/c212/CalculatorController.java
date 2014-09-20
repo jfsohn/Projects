@@ -98,7 +98,10 @@ public class CalculatorController {
      * updateModel takes a String and checks to see what the previous
      * operator was.  Depending on what that operator was, updateModel calls
      * the appropriate method on the operand for CalculatorModel.
-     * <p/>
+     * The operators you need to account for in this assignment are +, -, /, *, and =
+     * 
+     * Note: +, -, /, and * all expect an additional operand, whereas = does not.
+     * 
      * In MVC style code the Controller class (C) will interact with other
      * classes, namely the Model class (M) and the View class (V).
      *
