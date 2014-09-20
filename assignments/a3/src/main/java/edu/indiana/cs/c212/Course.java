@@ -15,8 +15,9 @@ public class Course {
     private UUID          id;
 
     /**
-     * The no arguments constructor for Course.  You should set the courseName to null and the
-     * id to a random UUID.  The students ArrayList has already been set for you.
+     * The no arguments constructor for Course. The courseName should be null (which it is by default, so you
+     * don't need to do anything) , and the id should be a random UUID.
+     * The students ArrayList has already been set for you.
      */
     public Course() {
         students = new ArrayList<Student>(); //Leave this be.
@@ -140,13 +141,7 @@ public class Course {
         //FIXME remove the given student from the course
     }
     
-    /**
-     * Sets the course enrollment limit to the given limit
-     * @param limit
-     */
-    public void setCourseEnrollmentLimit(int limit) {
-        //FIXME
-    }
+
 
     /**
      * The maximum number of students allowed to be enrolled in the class at a given time.
