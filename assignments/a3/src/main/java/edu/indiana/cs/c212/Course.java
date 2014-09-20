@@ -1,14 +1,15 @@
 package edu.indiana.cs.c212;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 
 public class Course {
+    private String        courseName;
+    private List<Student> students;
+    private UUID          id;
 
     public Course() {
-        students = new HashSet<>(); //Leave this be.
+        students = new ArrayList<>(); //Leave this be.
         //FIXME Set the value of id to be a random UUID
     }
 
@@ -20,11 +21,11 @@ public class Course {
         //FIXME set the id value
     }
 
-    public Set<Student> getStudents() {
+    public List<Student> getStudents() {
         return null; //FIXME return the actually set of enrolled students.
     }
 
-    public void setStudents(Set<Student> students) {
+    public void setStudents(List<Student> students) {
         //FIXME Set the students value
     }
 
@@ -56,9 +57,6 @@ public class Course {
         //FIXME
     }
 
-    private String       courseName;
-    private Set<Student> students;
-    private UUID         id;
 
     /**
      * The maximum number of students allowed to be enrolled in the class at a given time.

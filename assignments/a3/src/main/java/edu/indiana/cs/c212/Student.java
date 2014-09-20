@@ -6,15 +6,18 @@ import java.util.UUID;
  * This is a simple class that models a student. It has the fields that you might
  * expect from a student.
  */
-public class Student {
+public class Student{
 
+    /**
+     * This constructor should create a student with a
+     */
     public Student(){
 
     }
 
     /**
      * A constructor that creates a student
-     * @param name the new name value
+     * @param name the name of the student.
      */
     public Student(String name){
 
