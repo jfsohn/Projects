@@ -144,20 +144,8 @@ public class Course {
      * Sets the course enrollment limit to the given limit
      * @param limit
      */
-    public void setCourseEnrollmentLimit(int limit){
-    	//FIXME
-    }
-    
-    /**
-     * Checks to see if there are more students enrolled in the course than
-     * the course enrollment limit.
-     * 
-     * @return true if the number of students in the course is more than the 
-     * 		   course enrollment limit and false otherwise
-     */
-    public Boolean isOverEnrolled(){
-    	//FIXME
-    	return null;
+    public void setCourseEnrollmentLimit(int limit) {
+        //FIXME
     }
 
     /**
