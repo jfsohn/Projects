@@ -152,7 +152,7 @@ class SudokuPuzzle {
 				if(column % boxSize == 0){
 					System.out.print("| ");
 				}
-				if (isEmpty(row, column)){
+				if (isEmpty(row, column) != null && isEmpty(row, column)){
 					if(extraDigits){
 						System.out.print(' ');
 					}

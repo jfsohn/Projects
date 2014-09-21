@@ -46,7 +46,7 @@ class SudokuSolver {
 		System.out.println("Here's the puzzle I'm trying to solve:");
 		puzzle.show();
 
-		if (canSolve(puzzle)) {
+		if (canSolve(puzzle) != null && canSolve(puzzle)) {
 			System.out.println("And here's a solution:");
 			puzzle.show();
 		} else {
