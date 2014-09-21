@@ -77,22 +77,21 @@ class SudokuPuzzle {
 		grid[row][column] = value;
 	}
 	
-	// report whether a particular cell is empty
-		/**
-		 * Checks to see if the value at row, column of the puzzle is the
-		 * empty value and returns true if it is and false otherwise.  Feel free
-		 * to use the isEmptyValue method when writing isEmpty.
-		 * 
-		 * @param row
-		 * @param column
-		 * @return true if the value of the puzzle at row, grid is the empty value and false otherwise
-		 */
-		public Boolean isEmpty(int row, int column) {
-			//FIXME
-			return null;
-		}
+	/**
+	 * Checks to see if the value at row, column of the puzzle is the empty
+	 * value and returns true if it is and false otherwise. Feel free to use the
+	 * isEmptyValue method when writing isEmpty.
+	 * 
+	 * @param row
+	 * @param column
+	 * @return true if the value of the puzzle at row, grid is the empty value
+	 *         and false otherwise
+	 */
+	public Boolean isEmpty(int row, int column) {
+		// FIXME
+		return null;
+	}
 
-	// report whether this puzzle has an empty cell
 	/**
 	 * Checks to see if there is an empty value in the puzzle and returns
 	 * true if there is and false otherwise.
@@ -146,7 +145,6 @@ class SudokuPuzzle {
 		}
 		printLine("ends", numExtraDigits);
 		for (int row = 0; row < rowCount; row++) {
-			//System.out.print('|');
 			if(row % boxSize == 0 && row != 0){
 				printLine("mid", numExtraDigits);
 			}
