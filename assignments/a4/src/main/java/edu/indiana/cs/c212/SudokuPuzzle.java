@@ -79,8 +79,8 @@ class SudokuPuzzle {
 	
 	/**
 	 * Checks to see if the value at row, column of the puzzle is the empty
-	 * value and returns true if it is and false otherwise. Feel free to use the
-	 * isEmptyValue method when writing isEmpty.
+	 * value and returns true if it is and false otherwise. The isEmptyValue
+	 * method may be useful when writing isEmpty.
 	 * 
 	 * @param row
 	 * @param column
@@ -106,7 +106,7 @@ class SudokuPuzzle {
 	/**
 	 * getEmptyCell checks to see if there is a an empty value in the
 	 * puzzle and, if there is, returns a SudokuCell corresponding to
-	 * that spot.  Feel free to use the isEmpty method in this class.
+	 * that spot.
 	 * 
 	 * @return a SudokuCell if there is an empty spot in the puzzle, and null otherwise
 	 */
