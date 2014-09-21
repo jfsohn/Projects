@@ -15,16 +15,16 @@ class SudokuCell {
 	private int boxSize;
 	private int rowCount;
 	private int columnCount;
-
-	// which sudoku puzzle this cell belongs to
+	//notice that puzzle is static, this means that whenever any SudokuCell changes 
+	//this puzzle, it will change it for all SudokuCells.
 	private static SudokuPuzzle puzzle;
 	// which row and column (of cells) this cell is in
 	private int row, column;
 	// which row and column (of boxes) this cell is in
 	private int boxRow, boxColumn;
 
-	// make space for this cell
 	public SudokuCell(SudokuPuzzle currentPuzzle, int row, int column) {
+		//check to see if the row, column combination fall inside the currentPuzzle.
 		if(row < currentPuzzle.getPuzzleSize() && column < currentPuzzle.getPuzzleSize()
 				&& row >= 0 && column >= 0){
 			puzzle = currentPuzzle;
@@ -36,6 +36,8 @@ class SudokuCell {
 			this.boxRow = (row / boxSize) * boxSize;
 			this.boxColumn = (column / boxSize) * boxSize;
 		}
+		//if the row and column fall outside of the puzzle's size, then use -1 as the value
+		//so we can check against -1 explicitly in isLegalToInsert
 		else{
 			this.row = -1;
 			this.column = -1;
@@ -46,60 +48,77 @@ class SudokuCell {
 	public void insert(int value) {
 		puzzle.set(row, column, value);
 	}
+	
+	public int getRow(){
+		return this.row;
+	}
+	
+	public int getColumn(){
+		return this.column;
+	}
 
-	// report whether this cell can legally hold the given value.
-	public boolean isLegalToInsert(int value, SudokuPuzzle currentPuzzle) {
+	/**
+	 * isLegalToInsert takes a value and a puzzle and checks to see whether
+	 * putting that value at this cell's location in the puzzle would be legal.
+	 * In order to check this legality, isLegalToInsert must do four things.
+	 * 
+	 *  1. if either the row  = -1 or the column = -1 then this cell is outside the bounds
+	 *     of the puzzle and the insertion is not legal.
+	 *  2. assuming the cell is within the bounds of the puzzle, if the value given is
+	 *     the empty value for this puzzle, then the insertion is legal.
+	 *  3. if the value given is not a legal value for the puzzle (for example, 10 or -2 
+	 *     for a sudoku on a 9x9 grid) then this move is not legal.
+	 *  4. finally, if the attempted move passes 1. and 3. above and also passes
+	 *     isLegalForRow, isLegalForColumn, and isLegalForBox, then it is a legal move.
+	 * 
+	 * @param value
+	 * @param currentPuzzle
+	 * @return true if the move is legal, and false otherwise
+	 */
+	public Boolean isLegalToInsert(int value, SudokuPuzzle currentPuzzle) {
 		puzzle = currentPuzzle;
-		if(this.row == -1 || this.column == -1){
-			return false;
-		}
-		if (puzzle.isEmptyValue(value)) {
-			return true;
-		}
-		if (!puzzle.isDigitLegal(value)) {
-			return false;
-		}
-		return (isLegalForRow(value) && isLegalForColumn(value) && isLegalForBox(value));
-	}
-
-	// report whether this cell's row has the given digit
-	private boolean isLegalForRow(int digit) {
-		//FIXME
-		for (int columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-			if ((columnIndex != column)	&& (puzzle.get(row, columnIndex) == digit)) {
-				return false;
-			}
-		}
-		return true;
-		//
-	}
-
-	// report whether this cell's column has the given digit
-	private boolean isLegalForColumn(int digit) {
-		//FIXME
-		for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
-			if ((rowIndex != row) && (puzzle.get(rowIndex, column) == digit)) {
-				return false;
-			}
-		}
-		return true;
-		//
-	}
-
-	// report whether this cell's box has the given digit
-	private boolean isLegalForBox(int digit) {
 		
 		//FIXME
-		for (int r = 0; r < boxSize; r++) {
-			for (int c = 0; c < boxSize; c++) {
-				int cellRow = boxRow + r;
-				int cellColumn = boxColumn + c;
-				if (((cellRow != row) || (cellColumn != column)) && (puzzle.get(cellRow, cellColumn) == digit)) {
-					return false;
-				}
-			}
-		}
-		return true;
-		//
+		return null;
+	}
+
+	/**
+	 * Checks to see if the given digit is legal for this cell's row of the puzzle.
+	 * A digit is legal for a row if that digit does not already appear in the row.
+	 * 
+	 * @param digit
+	 * @return true if the digit is legal for the row and false otherwise
+	 */
+	private Boolean isLegalForRow(int digit) {
+		//FIXME
+		return null;
+	}
+
+	/**
+	 * Checks to see if the given digit is legal for this cell's column of the puzzle.
+	 * A digit is legal for a column if that digit does not already appear in the column.
+	 * 
+	 * @param digit
+	 * @return true if the digit is legal for the column and false otherwise
+	 */
+	private Boolean isLegalForColumn(int digit) {
+		//FIXME
+		return null;
+	}
+
+	/**
+	 * Checks to see if the given digit is legal for this cell's box of the puzzle.
+	 * A digit is legal for a box if that digit does not already appear in that box.
+	 * 
+	 * Note: Instances of your SudokuCell class have boxRow and boxColumn fields.  These fields,
+	 * in combination with boxSize, may prove useful when trying to check digit against only
+	 * the cells of the puzzle that are in this cell's box.
+	 * 
+	 * @param digit
+	 * @return true if the digit is legal for the box and false otherwise
+	 */
+	private Boolean isLegalForBox(int digit) {
+		//FIXME
+		return null;
 	}
 }

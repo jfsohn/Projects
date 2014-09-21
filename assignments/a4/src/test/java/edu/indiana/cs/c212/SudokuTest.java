@@ -1,15 +1,8 @@
 package edu.indiana.cs.c212;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-
-import java.awt.Color;
-import java.awt.Point;
-import java.util.List;
-
-import org.junit.Before;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
 public class SudokuTest {
@@ -95,12 +88,15 @@ public class SudokuTest {
 	int[][] knownUnsolvablePuzzle6 = { 
 			{ 1, 0, 3, 0 }, { 0, 0, 0, 2 }, { 2, 0, 0, 0 }, { 3, 2, 0, 0 } };
 
+	int[][] solvedPuzzle1 = { 
+			{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 4, 5, 6, 7, 8, 9, 1, 2, 3 }, 
+			{ 7, 8, 9, 1, 2, 3, 4, 5, 6 }, { 2, 3, 4, 5, 6, 7, 8, 9, 1 },
+			{ 5, 6, 7, 8, 9, 1, 2, 3, 4 }, { 8, 9, 1, 2, 3, 4, 5, 6, 7 }, 
+			{ 3, 4, 5, 6, 7, 8, 9, 1, 2 }, { 6, 7, 8, 9, 1, 2, 3, 4, 5 },
+			{ 9, 1, 2, 3, 4, 5, 6, 7, 8 } };
 	
-	
-	@Before
-	public void setUp() throws Exception {
-
-	}
+	int[][] solvedPuzzle2 = {
+			{1, 2, 3, 4}, {3, 4, 1, 2}, {2, 3, 4, 1}, {4, 1, 2, 3} };
 	
 	@Test (timeout = 5000)
 	public void SudokuSolvableTest1(){
@@ -397,5 +393,93 @@ public class SudokuTest {
 		puzzle.setPuzzle(knownSolvablePuzzle8);
 		SudokuCell cell = new SudokuCell(puzzle, 13, 5);
 		assertFalse(cell.isLegalToInsert(17, puzzle));
+	}
+	
+	@Test (timeout = 5000)
+	public void isEmptyValueTest1(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle5);
+		assertTrue(puzzle.isEmpty(1,4));
+	}
+	
+	@Test (timeout = 5000)
+	public void isEmptyValueTest2(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle6);
+		assertFalse(puzzle.isEmpty(6,7));
+	}
+	
+	@Test (timeout = 5000)
+	public void isEmptyValueTest3(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle2);
+		assertFalse(puzzle.isEmpty(2,2));
+	}
+	
+	@Test (timeout = 5000)
+	public void isEmptyValueTest4(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle8);
+		assertTrue(puzzle.isEmpty(3, 9));
+	}
+	
+	@Test (timeout = 5000)
+	public void hasEmptyCell1(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle8);
+		assertTrue(puzzle.hasEmptyCell());
+	}
+	
+	@Test (timeout = 5000)
+	public void hasEmptyCell2(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(solvedPuzzle1);
+		assertFalse(puzzle.hasEmptyCell());
+	}
+	
+	@Test (timeout = 5000)
+	public void hasEmptyCell3(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle8);
+		assertTrue(puzzle.hasEmptyCell());
+	}
+	
+	@Test (timeout = 5000)
+	public void hasEmptyCell4(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(solvedPuzzle2);
+		assertFalse(puzzle.hasEmptyCell());
+	}
+	
+	@Test (timeout = 5000)
+	public void getEmptyCell1(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(solvedPuzzle1);
+		assertNull(puzzle.getEmptyCell());
+	}
+	
+	@Test (timeout = 5000)
+	public void getEmptyCell2(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(solvedPuzzle2);
+		assertNull(puzzle.getEmptyCell());
+	}
+	
+	@Test (timeout = 5000)
+	public void getEmptyCell3(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownSolvablePuzzle8);
+		SudokuCell cell = puzzle.getEmptyCell();
+		int[][] grid = puzzle.getPuzzle();
+		assertTrue(puzzle.isEmptyValue(grid[cell.getRow()][cell.getColumn()]));
+	}
+	
+	@Test (timeout = 5000)
+	public void getEmptyCell4(){
+		SudokuPuzzle puzzle = new SudokuPuzzle();
+		puzzle.setPuzzle(knownUnsolvablePuzzle4);
+		SudokuCell cell = puzzle.getEmptyCell();
+		int[][] grid = puzzle.getPuzzle();
+		assertTrue(puzzle.isEmptyValue(grid[cell.getRow()][cell.getColumn()]));
 	}
 }

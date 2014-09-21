@@ -7,43 +7,41 @@ package edu.indiana.cs.c212;
  */
 class SudokuSolver {
 
-	public static boolean canSolve(SudokuPuzzle puzzle) {
+	/**
+	 * canSolve is the heart of this assignment.  It requires relatively few
+	 * lines of code, but you'll need to understand depth first search, recursion,
+	 * and backtracking (as discussed in class), in order to make it work nicely.
+	 * 
+	 * canSolve takes a SudokuPuzzle as an argument and returns true
+	 * if the puzzle can be solved and false otherwise.  An approach
+	 * for solving this problem might be as follows:
+	 * 
+	 *   A possible approach:
+	 *      1. check to see if there is an empty cell.
+	 *         A. If there isn't an empty cell left in the puzzle, what does that mean? (think base case in recursion)
+	 *      2. If there is an empty cell, check to see if you can legally insert a value into that cell.
+	 *         A. if you can legally insert a digit into that cell, check to see if you can solve the puzzle.
+	 *            -- if it turns out that making that insertion didn't get you any closer to solving the puzzle, undo the move.
+	 *            -- if it turns out that insertion did lead, somewhere down the road, to a solved puzzle then you're done.
+	 *      3. if you check every possible insertion and none of them lead to a solved puzzle, then the
+	 *         puzzle is unsolvable.
+	 *      
+	 *   Hint: Recursion will very much be your friend for this problem.
+	 *    
+	 * @param puzzle
+	 * @return true if the puzzle can be solved and false otherwise
+	 */
+	public static Boolean canSolve(SudokuPuzzle puzzle) {
 		//FIXME
-		int puzzleSize = puzzle.getPuzzleSize();
-		if (!puzzle.hasEmptyCell()) {
-			// if we're here, the puzzle is solved
-			return true;
-		}
-
-		// if we're here, the puzzle has at least one empty cell
-		SudokuCell cell = puzzle.getEmptyCell();
-		for (int digit = 1; digit <= puzzleSize; digit++) {
-			if (cell.isLegalToInsert(digit, puzzle)) {
-				// try digit in the cell
-				cell.insert(digit);
-				// with that choice, can we solve the rest of the puzzle?
-				if (canSolve(puzzle)) {
-					// yes, we can solve the rest of the puzzle
-					return true;
-				} else {
-					// the choice failed somewhere down the line so unmake it.
-					cell.insert(puzzle.getEmptyValue());
-				}
-			}
-			// else, the digit wasn't legal for this empty cell,
-			// so, go try to find another digit to try
-		}
-
-		// if we're here, we've tried all digits in the empty cell
-		// but nothing worked, so either the puzzle is unsolvable,
-		// or some earlier choice was wrong, so backtrack up the tree
-		return false;
-		//
+		return null;
 	}
 
 	public static void main(String[] parameters) {
 		SudokuPuzzle puzzle;
 		puzzle = new SudokuPuzzle();
+		//NOTE: to change which puzzle you're using change the line below from
+		//its current puzzle (knownSolvablePuzzle4) to any of the puzzles in
+		//the SudokuPuzzleContainer class included with this assignment.
 		puzzle.setPuzzle(SudokuPuzzleContainer.knownSolvablePuzzle4);
 		System.out.println("Here's the puzzle I'm trying to solve:");
 		puzzle.show();

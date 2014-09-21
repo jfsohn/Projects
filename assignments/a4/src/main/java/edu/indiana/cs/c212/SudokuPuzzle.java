@@ -1,7 +1,5 @@
 package edu.indiana.cs.c212;
 
-import java.util.Scanner;
-
 /*
  An object of this class represents a sudoku puzzle with a grid,
  which here is implemented as a 2-dimensional array of ints
@@ -11,10 +9,6 @@ import java.util.Scanner;
  but it can also be 4, but for boxSize >= 5, depth-first search is too
  slow.)
 
- in sudoku, a particular cell can legally hold a particular value:
- if the value is an empty cell's value (i.e. it's 0)
- or if it's a legal digit value (i.e. it's in the range 1 to puzzleSize)
- and neither its row, nor column, nor box contains the same value.
  */
 
 class SudokuPuzzle {
@@ -82,33 +76,44 @@ class SudokuPuzzle {
 	public void set(int row, int column, int value) {
 		grid[row][column] = value;
 	}
+	
+	// report whether a particular cell is empty
+		/**
+		 * Checks to see if the value at row, column of the puzzle is the
+		 * empty value and returns true if it is and false otherwise.  Feel free
+		 * to use the isEmptyValue method when writing isEmpty.
+		 * 
+		 * @param row
+		 * @param column
+		 * @return true if the value of the puzzle at row, grid is the empty value and false otherwise
+		 */
+		public Boolean isEmpty(int row, int column) {
+			//FIXME
+			return null;
+		}
 
 	// report whether this puzzle has an empty cell
-	public boolean hasEmptyCell() {
+	/**
+	 * Checks to see if there is an empty value in the puzzle and returns
+	 * true if there is and false otherwise.
+	 * 
+	 * @return true if the puzzle has an empty cell and false otherwise
+	 */
+	public Boolean hasEmptyCell() {
 		//FIXME
-		for (int row = 0; row < rowCount; row++) {
-			for (int column = 0; column < columnCount; column++) {
-				if (isEmpty(row, column)){
-					return true;
-				}
-			}
-		}
-		return false;
-		//
+		return null;
 	}
 
-	// return an empty cell
+	/**
+	 * getEmptyCell checks to see if there is a an empty value in the
+	 * puzzle and, if there is, returns a SudokuCell corresponding to
+	 * that spot.  Feel free to use the isEmpty method in this class.
+	 * 
+	 * @return a SudokuCell if there is an empty spot in the puzzle, and null otherwise
+	 */
 	public SudokuCell getEmptyCell() {
 		//FIXME
-		for (int row = 0; row < rowCount; row++) {
-			for (int column = 0; column < columnCount; column++) {
-				if (isEmpty(row, column)){
-					return new SudokuCell(this, row, column);
-				}
-			}
-		}
 		return null;
-		//
 	}
 	
 	public int[][] getPuzzle(){
@@ -131,11 +136,6 @@ class SudokuPuzzle {
 		return false;
 	}
 	
-	// report whether a particular cell is empty
-	private boolean isEmpty(int row, int column) {
-		return isEmptyValue(grid[row][column]);
-	}
-
 	// display this sudoku puzzle
 	public void show() {
 		boolean extraDigits = false;
