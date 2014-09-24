@@ -1,8 +1,8 @@
 package edu.indiana.cs.c212;
 
 /*
- solve a sudoku puzzle. this is the entry class of 3 classes:
- SudokuSolver, SudokuPuzzle, and SudokuCell.
+ solve a sudoku puzzle. this is the entry class of 4 classes:
+ SudokuSolver, SudokuPuzzle, SudokuPuzzleContainer, and SudokuCell.
 
  */
 class SudokuSolver {
@@ -19,14 +19,15 @@ class SudokuSolver {
 	 *   A possible approach:
 	 *      1. check to see if there is an empty cell.
 	 *         A. If there isn't an empty cell left in the puzzle, what does that mean? (think base case in recursion)
-	 *      2. If there is an empty cell, check to see if you can legally insert a value into that cell.
-	 *         A. if you can legally insert a digit into that cell, check to see if you can solve the puzzle.
+	 *      2. If there is an empty cell, systematically check to see if you can legally insert a value into that cell.
+	 *         A. if you can legally insert a value into that cell, insert the value, then check to see if you can solve the puzzle.
 	 *            -- if it turns out that making that insertion didn't get you any closer to solving the puzzle, undo the move.
 	 *            -- if it turns out that insertion did lead, somewhere down the road, to a solved puzzle then you're done.
 	 *      3. if you check every possible insertion and none of them lead to a solved puzzle, then the
 	 *         puzzle is unsolvable.
 	 *      
-	 *   Hint: Recursion will very much be your friend for this problem.
+	 *   Hint: Recursion will very much be your friend for this problem.  If you're getting stuck, example code for this
+	 *         is included on the course wiki: http://www.cs.indiana.edu/classes/c212/SudokuSolver.java
 	 *    
 	 * @param puzzle
 	 * @return true if the puzzle can be solved and false otherwise

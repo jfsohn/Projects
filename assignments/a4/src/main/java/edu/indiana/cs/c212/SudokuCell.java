@@ -65,7 +65,8 @@ class SudokuCell {
 	 *  1. if either the row  = -1 or the column = -1 then this cell is outside the bounds
 	 *     of the puzzle and the insertion is not legal.
 	 *  2. assuming the cell is within the bounds of the puzzle, if the value given is
-	 *     the empty value for this puzzle, then the insertion is legal.
+	 *     the empty value for this puzzle, then the insertion is legal. (This is because
+	 *     the empty value should not violate any of the legality rules for the puzzle.)
 	 *  3. if the value given is not a legal value for the puzzle (for example, 10 or -2 
 	 *     for a sudoku on a 9x9 grid) then this move is not legal.
 	 *  4. finally, if the attempted move passes 1. and 3. above and also passes
