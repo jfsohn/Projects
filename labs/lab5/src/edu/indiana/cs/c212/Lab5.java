@@ -7,7 +7,7 @@ import java.util.List;
 public class Lab5 
 {
 	private List<Employee> empList;
-	
+
     /**
      * This constructor should create an instance of ArrayList to store list of employees. 
      */
@@ -15,7 +15,7 @@ public class Lab5
 	{
 		//FIXME
 	}
-	
+
 	/**
 	 * @param Employee emp
 	 * 
@@ -29,11 +29,11 @@ public class Lab5
 	 * For more information on ArrayLists see:
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
 	 */
-	public static void addEmployee(Employee emp)
+	public void addEmployee(Employee emp)
 	{
 		//FIXME
 	}
-	
+
 	/**
 	 * @param String
 	 * @return Employee
@@ -44,12 +44,12 @@ public class Lab5
 	 * For more information on Iterators see:
 	 * http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html
 	 */
-	public static Employee findEmployee(String empName)
+	public Employee findEmployee(String empName)
 	{
 		//FIXME
 		return null;
 	}
-	
+
 	/**
 	 * @param String empName
 	 * @return Employee
@@ -58,23 +58,23 @@ public class Lab5
 	 * searches ArrayList<Employee>, removing the employee with that name if they are
 	 * in the ArrayList
 	 */
-	public static void removeEmployee(String empName)
+	public void removeEmployee(String empName)
 	{
 		//FIXME
 	}
-	
+
 	/**
 	 * @return Employee
 	 * 
 	 * getMaxSalaryEmp is a method that searches ArrayList<Employee> 
 	 * and returns an employee with the maximum salary
 	 */
-	public static Employee getMaxSalaryEmp()
+	public Employee getMaxSalaryEmp()
 	{
 		//FIXME
 		return null;
 	}
-	
+
 	/**
 	 * @param double percentage
 	 * @return Employee
@@ -82,37 +82,37 @@ public class Lab5
 	 * raiseSalary is a method that raises an employee's salary 
 	 * by given percentage
 	 */
-	public static void raiseSalary(double percentage)
+	public void raiseSalary(double percentage)
 	{
 		//FIXME
 	}
-	
+
 	/**
 	 * @param Employee emp
 	 * 
 	 * displayEmployee is a method that displays employee name, salary and join year to the console
 	 */
-	public static void displayEmployee(Employee emp)
+	public void displayEmployee(Employee emp)
 	{
 		//FIXME
 	}
-	
+
 	public static void main(String[] args)
 	{
 		//FIXME
-		
+
 		// Add employees to the list
-		
+
 		// Find employee
-		
+
 		// display employee details
-		
+
 		// display maximum salary employee details
-		
+
 		// increase salary of all employees by 10 percent
-		
+
 		// delete employee from list
-		
+
 		// display employee details for all employees
 	}
 } 
