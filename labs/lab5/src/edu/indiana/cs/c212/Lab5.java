@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Lab5 
 {
-	List<Employee> empList;
+	private List<Employee> empList;
 	
     /**
      * This constructor should create an instance of ArrayList to store list of employees. 
@@ -99,7 +99,8 @@ public class Lab5
 	
 	public static void main(String[] args)
 	{
-
+		//FIXME
+		
 		// Add employees to the list
 		
 		// Find employee
