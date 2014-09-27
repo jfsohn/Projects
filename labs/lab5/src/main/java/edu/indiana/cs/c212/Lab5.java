@@ -46,9 +46,19 @@ public class Lab5
 	 */
 	public Employee findEmployee(String empName)
 	{
-		//FIXME
+		//fixme
+		if (empList == null)
+		{
+			return null;
+		}
+		for(Employee employee : empList) {
+			if(employee.getEmpName().equals(empName)){
+				return employee;
+			}
+			}
 		return null;
-	}
+		}
+	
 
 	/**
 	 * @param String empName
@@ -58,9 +68,8 @@ public class Lab5
 	 * searches ArrayList<Employee>, removing the employee with that name if they are
 	 * in the ArrayList
 	 */
-	public void removeEmployee(String empName)
-	{
-		//FIXME
+	public void removeEmployee(String empName){ 
+		empList.remove(findEmployee(empName));
 	}
 
 	/**
@@ -69,11 +78,21 @@ public class Lab5
 	 * getMaxSalaryEmp is a method that searches ArrayList<Employee> 
 	 * and returns an employee with the maximum salary
 	 */
-	public Employee getMaxSalaryEmp()
-	{
-		//FIXME
-		return null;
-	}
+	public Employee getMaxSalaryEmp() {
+            if(empList ==null||empList.size()<0) {
+                    return null;
+            }
+            Iterator<Employee>itr=empList.iterator();
+            Employee max=itr.next();
+            while (itr.hasNext()){
+                    Employee current=itr.next();
+                    if (current.getSalary()>max.getSalary()) {
+                            max=current;
+                    }
+            }
+            return max;
+    }
+	
 
 	/**
 	 * @param double percentage
@@ -82,20 +101,27 @@ public class Lab5
 	 * raiseSalary is a method that raises an employee's salary 
 	 * by given percentage
 	 */
-	public void raiseSalary(double percentage)
-	{
-		//FIXME
-	}
+	public void raiseSalary(double percentage) {
+        for(Employee employee: empList) {
+                double currentSal = employee.getSalary();
+                employee.setSalary(currentSal * (1.0 + (percentage/100.00)));
+           }
+}
+		
 
 	/**
 	 * @param Employee emp
 	 * 
 	 * displayEmployee is a method that displays employee name, salary and join year to the console
 	 */
-	public void displayEmployee(Employee emp)
-	{
-		//FIXME
-	}
+	//public void displayEmployee(Employee emp)
+	//System.out.println(emp.getName
+			//name();
+	        //salary();
+	        //joinyear();
+	  
+	
+	
 
 	public static void main(String[] args)
 	{
