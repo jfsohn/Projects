@@ -1,14 +1,13 @@
 package edu.indiana.cs.c212;
-
 /*
  solve a sudoku puzzle. this is the entry class of 4 classes:
  SudokuSolver, SudokuPuzzle, SudokuPuzzleContainer, and SudokuCell.
-
  */
+
 class SudokuSolver {
 
 	/**
-	 * canSolve is the heart of this assignment.  It requires relatively few
+     * canSolve is the heart of this assignment.  It requires relatively few
 	 * lines of code, but you'll need to understand depth first search, recursion,
 	 * and backtracking (as discussed in class), in order to make it work nicely.
 	 * 
@@ -29,29 +28,49 @@ class SudokuSolver {
 	 *   Hint: Recursion will very much be your friend for this problem.  If you're getting stuck, example code for this
 	 *         is included on the course wiki: http://www.cs.indiana.edu/classes/c212/SudokuSolver.java
 	 *    
+
 	 * @param puzzle
 	 * @return true if the puzzle can be solved and false otherwise
 	 */
+
 	public static Boolean canSolve(SudokuPuzzle puzzle) {
 		//FIXME
-		return null;
-	}
+		 if (!puzzle.hasEmptyCell())
+         {
+                 return true;
+         }
+         SudokuCell cell = puzzle.getEmptyCell();
+         for (int num = 1; num <= puzzle.getPuzzleSize(); num++){
+         if (cell.isLegalToInsert(num, puzzle)){
+                         cell.insert(num);
+                         if (canSolve(puzzle)) {
+            return true;
+             }
+         else {
+             cell.insert(puzzle.getEmptyValue());
+             }
+         }
+    }
+         return false;
+}
 
-	public static void main(String[] parameters) {
-		SudokuPuzzle puzzle;
-		puzzle = new SudokuPuzzle();
-		//NOTE: to change which puzzle you're using change the line below from
-		//its current puzzle (knownSolvablePuzzle4) to any of the puzzles in
-		//the SudokuPuzzleContainer class included with this assignment.
-		puzzle.setPuzzle(SudokuPuzzleContainer.knownSolvablePuzzle4);
-		System.out.println("Here's the puzzle I'm trying to solve:");
+
+public static void main(String[] parameters) {
+	SudokuPuzzle puzzle;
+	puzzle = new SudokuPuzzle();
+	//NOTE: to change which puzzle you're using change the line below from
+	//its current puzzle (knownSolvablePuzzle4) to any of the puzzles in
+	//the SudokuPuzzleContainer class included with this assignment.
+	puzzle.setPuzzle(SudokuPuzzleContainer.knownSolvablePuzzle4);
+	System.out.println("Here's the puzzle I'm trying to solve:");
+	puzzle.show();
+	if (canSolve(puzzle) != null && canSolve(puzzle)) {
+		System.out.println("And here's a solution:");
 		puzzle.show();
-
-		if (canSolve(puzzle) != null && canSolve(puzzle)) {
-			System.out.println("And here's a solution:");
-			puzzle.show();
-		} else {
-			System.out.println("This puzzle is unsolvable.");
-		}
+	} else {
+		System.out.println("This puzzle is unsolvable.");
 	}
+
+}
+
 }
