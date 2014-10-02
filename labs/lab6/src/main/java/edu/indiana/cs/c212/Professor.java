@@ -32,14 +32,17 @@ public class Professor extends Person {
      */
      public Professor(String name){
          //FIXME
+    	 this.setName(name);
      }
 
     public DateTime getStartDate() {
-        return null; //FIXME
+    	//FIXME
+    	return this.startDate; 
     }
 
     public void setStartDate(DateTime startDate) {
         //FIXME
+    	this.setStartDate = startDate;
     }
 
 }

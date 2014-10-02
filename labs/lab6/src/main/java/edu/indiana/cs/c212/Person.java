@@ -22,8 +22,9 @@ public abstract class Person implements Comparable<Person> {
      * @param lastName The Person's last name
      */
     public Person(String firstName, String lastName){
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
+    	this.setFirstName(firstName);
+    	this.setLastName(lastName);
+    	
     }
 
     /**
@@ -36,6 +37,7 @@ public abstract class Person implements Comparable<Person> {
      */
     public Person(String name){
       //FIXME
+    	setName(name);
     }
 
 
@@ -71,6 +73,9 @@ public abstract class Person implements Comparable<Person> {
      */
     public void setName(String name){
         //FIXME
+    	int spaceIndex = name.indexOf(" ");
+    	this.setFirstName (name.substring(0, spaceIndex));
+    	this.setLastName((name.substring(spaceIndex+1, name.length()).trim());
     }
 
 
@@ -83,7 +88,12 @@ public abstract class Person implements Comparable<Person> {
      * @return  A number indicating a comparison between the names of this person and the other person.
      */
     @Override
+    //checks to see if a ourLastName is less than otherLastName
     public int compareTo(Person other) {
         return 0; //FIXME
+        String otherLastName = other.getLastName();
+        String ourLastName = this.getLastName();
+        return ourLastName.compareTo(otherLastName);
+        //SAME AS return String.compare(ourLastName, otherLastName);
     }
 }
