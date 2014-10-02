@@ -1,4 +1,6 @@
-package src.main.java.edu.indiana.cs.c212;
+package edu.indiana.cs.c212;
+
+import edu.indiana.cs.c212.Magnet;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -23,16 +25,16 @@ import java.util.ArrayList;
 public class Fridge extends JPanel {
     public static final Color COLOR = Color.BLACK;
 
-    public static final int DEFAULT_WIDTH_IN_PIXELS = 400;
-    public static final int DEFAULT_HEIGHT_IN_PIXELS = 400;
-    public static final Dimension PREFERRED_SIZE = new Dimension(DEFAULT_WIDTH_IN_PIXELS, DEFAULT_HEIGHT_IN_PIXELS);
+    public static final int       DEFAULT_WIDTH_IN_PIXELS  = 400;
+    public static final int       DEFAULT_HEIGHT_IN_PIXELS = 400;
+    public static final Dimension PREFERRED_SIZE           = new Dimension(DEFAULT_WIDTH_IN_PIXELS, DEFAULT_HEIGHT_IN_PIXELS);
 
     private Dimension size;
-    private Graphics offscreenTablet;
+    private Graphics  offscreenTablet;
 
     private List<Magnet> magnets;
-    private Magnet selectedMagnet;
-    private int selectedMagnetIndex;
+    private Magnet       selectedMagnet;
+    private int          selectedMagnetIndex;
 
     /**
      * Creates a new Fridge object to hold Magnets

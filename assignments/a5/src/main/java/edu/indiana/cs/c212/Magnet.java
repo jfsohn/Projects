@@ -1,4 +1,4 @@
-package src.main.java.edu.indiana.cs.c212;
+package edu.indiana.cs.c212;
 
 import java.awt.Color;
 import java.awt.Font;

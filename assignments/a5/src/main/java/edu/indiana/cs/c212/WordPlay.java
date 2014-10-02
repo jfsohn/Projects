@@ -1,4 +1,7 @@
-package src.main.java.edu.indiana.cs.c212;
+package edu.indiana.cs.c212;
+
+import edu.indiana.cs.c212.Album;
+import edu.indiana.cs.c212.Fridge;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,7 +17,7 @@ public class WordPlay extends JFrame {
     public static final Color COLOR = Fridge.COLOR;
 
     private Fridge fridge;
-    private Album album;
+    private Album  album;
 
     public WordPlay() {
         JPanel panel = setupScreen();

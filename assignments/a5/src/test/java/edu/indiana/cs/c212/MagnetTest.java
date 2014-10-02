@@ -1,4 +1,4 @@
-package src.test.java.edu.indiana.cs.c212;
+package edu.indiana.cs.c212;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,6 @@ import java.lang.reflect.Field;
 import javax.swing.JLabel;
 
 import org.junit.Test;
-import src.main.java.edu.indiana.cs.c212.*;
 
 public class MagnetTest {
 
