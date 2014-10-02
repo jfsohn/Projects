@@ -9,16 +9,19 @@ public class Employee
 {
 	
 	// FIXME add instance variables here
-	employee = name;
-	employee = salary;
-	employee = year;
+	Employee (name, salary, year);
+	}
+	
 	
     /**
      * This constructor should create an Employee with a name, salary, and the year they joined the company. 
      */
 	public Employee(String empName, double salary, int joinYear)
 	{
-		// FIXME 
+		// FIXME
+		Employee = name;
+		Employee = salary;
+		Employee = year
 	}
 
     /**
@@ -27,8 +30,9 @@ public class Employee
      */
 	public String getEmpName() 
 	{
-		//FIXME 
-		return null;
+		//FIXME
+		Employee employee;
+		return employee.getEmpName();
 	}
 
 	/**
@@ -47,7 +51,7 @@ public class Employee
 	public Double getSalary() 
 	{
 		//FIXME
-		return salary;
+		return getSalary();
 	}
 
 	/**
@@ -57,7 +61,8 @@ public class Employee
 	public void setSalary(double salary) 
 	{
 		//FIXME
-		salary == employee.getSalary();
+		Employee employee;
+		salary = employee.getSalary();
 	}
 
    /**
@@ -67,6 +72,7 @@ public class Employee
 	public Integer getJoinYear() 
 	{
 		//FIXME
+		Employee employee;
 		return employee.getJoinYear();
 	}
 
@@ -77,6 +83,7 @@ public class Employee
 	public void setJoinYear(int joinYear) 
 	{
 		//FIXME
+		int specifiedYear;
 		joinYear = specifiedYear;
 	}
 }
