@@ -25,7 +25,7 @@ public class BasicDirectoryTest {
     Professor director   = new Professor("John", "Hughes");
 
     List<Person> sortedArray = Arrays.asList(criminal, athlete, director, brain, basketCase, princess, principal);
-    List<Person> unsorted    = new ArrayList<>();
+    List<Person> unsorted    = new ArrayList<Person>();
 
     @Before
     public void setup() {

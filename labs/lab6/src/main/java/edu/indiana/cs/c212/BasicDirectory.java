@@ -11,7 +11,7 @@ public class BasicDirectory implements Directory {
     private List<Person> persons;
 
     BasicDirectory(){
-        persons = new ArrayList<>();
+        persons = new ArrayList<Person>();
     }
 
     BasicDirectory(List<Person> persons){
