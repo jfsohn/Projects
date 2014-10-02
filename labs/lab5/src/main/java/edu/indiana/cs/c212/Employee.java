@@ -9,6 +9,9 @@ public class Employee
 {
 	
 	// FIXME add instance variables here
+	employee = name;
+	employee = salary;
+	employee = year;
 	
     /**
      * This constructor should create an Employee with a name, salary, and the year they joined the company. 
@@ -44,7 +47,7 @@ public class Employee
 	public Double getSalary() 
 	{
 		//FIXME
-		return null;
+		return salary;
 	}
 
 	/**
@@ -54,6 +57,7 @@ public class Employee
 	public void setSalary(double salary) 
 	{
 		//FIXME
+		salary == employee.getSalary();
 	}
 
    /**
@@ -63,7 +67,7 @@ public class Employee
 	public Integer getJoinYear() 
 	{
 		//FIXME
-		return null;
+		return employee.getJoinYear();
 	}
 
 	/**
@@ -73,5 +77,6 @@ public class Employee
 	public void setJoinYear(int joinYear) 
 	{
 		//FIXME
+		joinYear = specifiedYear;
 	}
 }
