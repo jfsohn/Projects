@@ -50,18 +50,23 @@ public class BasicDirectory implements Directory {
      */
     @Override
     public List<Professor> getProfessors() {
-        List<Professor> = new ArrayList<Professor>();
-        
-        
-    	return null; //FIXME
+    	//FIXME
+    	ArrayList<Professor> professors = new ArrayList<Professor>();
+    	for(Person p : persons){
+    		if(p instanceof Professor){
+    			professors.add( (Professor)p );
+    		}
+    	}
+    	Collections.sort(professors);
+    	return professors;
     }
+     
     /**
      * {@inheritDoc}
      */
     @Override
     public List<Professor> getProfsSortedByStartDate() {
         return null; //FIXME
-        ArrayList<Professor> professors = new ArrayList<Professor>();
     }
     /**
      * {@inheritDoc}
@@ -76,7 +81,7 @@ public class BasicDirectory implements Directory {
     @Override
     public void addStudent(Student student) {
         //FIXME
-    	oersons.addStudent();
+    	persons.add(student);
     }
     /**
      * {@inheritDoc}

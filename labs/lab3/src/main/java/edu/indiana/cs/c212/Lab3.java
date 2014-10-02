@@ -14,12 +14,12 @@ public class Lab3 {
 	 * 
 	 * Operations to know for ArrayLists:
 	 *   Let list be an ArrayList<Integer> and n be an int:
-	 *   	list.add(n) will add n to the end of your list
+	 *   	list.add(n) will add n tto the end of your list
 	 *   	list.get(n) will return the Integer at the nth index of your list
 	 *      list.size() will return the size of your list
 	 *      
 	 * For more information on ArrayLists see:
-	 * http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html
+	 * http://docs.oracle.com/javaste/7/docs/api/java/util/ArrayList.html
 	 */
 	public static ArrayList<Integer> generateArrayList(int n) {
 		ArrayList<Integer> list = new ArrayList<Integer>();

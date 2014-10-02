@@ -6,9 +6,9 @@ import java.lang.Math;
  * @author 
  *
  */
+//A Circle has two properties that we will be storing in fields: a radius, and an origin. 
+//Make sure the radius is a number you can do Math on and the origin is of type Point.
 class Circle{
-	//A Circle has two properties that we will be storing in fields: a radius, and an origin. 
-	//Make sure the radius is a number you can do Math on and the origin is of type Point.
     private double radius;
     private Point origin;
     private final double PI = Math.PI;
@@ -22,9 +22,10 @@ class Circle{
      * REMINDER: Don't forget to reference fields with the keyword this.
      */
     public Circle(){
-    	//FIXME
     	//Set a numerical value to radius
-    	//Set coordinates to origin
+    //SAMEASBELOW radius = 1;
+    //SAMEASBELOW origin = new Point(0,0);
+    this(1, new Point (0,0) );
     }
     
     /**
@@ -38,10 +39,11 @@ class Circle{
      * @param p
      */
     public Circle(double r, Point p){
-    	//FIXME
     	//Set radius to r
     	//Set origin to p
-    }
+        this.radius = r;
+        this.origin = p;
+         }
     
     /**
      * @return
@@ -49,9 +51,8 @@ class Circle{
      * Write a getter that returns the radius of the circle as a double
      */
     public double getRadius(){
-    	//FIXME
     	//return the radius of the circle
-    	return -1;
+    	return this.radius;
     }
     
     /**
@@ -62,7 +63,7 @@ class Circle{
     public Point getOrigin(){
     	//FIXME
     	//return the center of the circle
-    	return null;
+    	return this.origin;
     }
     
     /**
@@ -72,9 +73,8 @@ class Circle{
      * @return the circumference of the Circle
      */
     public double getCircumference(){
-    	//FIXME
     	//return the circumference of the Circle
-    	return -1;
+    	return 2 * PI * radius;
     }
 
     /**
@@ -84,9 +84,8 @@ class Circle{
      * @return the Area of the Circle
      */
     public double getArea(){
-    	//FIXME
     	//return the Area of the Circle
-    	return -1;
+    	return PI * (radius * radius);
     }
     
     /**
@@ -103,7 +102,6 @@ class Circle{
      */
     
     public static Double distanceBetweenCircles(Circle a, Circle b){
-    	//FIXME
-    	return null;
+    	return a.origin.distanceTo(b.origin) - a.radius - b.radius;
     }
 }
