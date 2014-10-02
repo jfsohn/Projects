@@ -4,24 +4,22 @@ package edu.indiana.cs.c212;
  * This is a simple class that models an employee. Each employee has a name,
  * salary and year of joining the company.
  */
-
 public class Employee 
 {
-	
-	// FIXME add instance variables here
-	Employee (name, salary, year);
-	}
-	
-	
+    String empName;
+    double salary;
+    int joinYear;
+ // FIXME add instance variables here
+
     /**
      * This constructor should create an Employee with a name, salary, and the year they joined the company. 
      */
 	public Employee(String empName, double salary, int joinYear)
 	{
 		// FIXME
-		Employee = name;
-		Employee = salary;
-		Employee = year
+		this.empName = empName;
+		this.salary = salary;
+		this.joinYear = joinYear;
 	}
 
     /**
@@ -32,7 +30,7 @@ public class Employee
 	{
 		//FIXME
 		Employee employee;
-		return employee.getEmpName();
+		return empName;
 	}
 
 	/**
@@ -42,6 +40,7 @@ public class Employee
 	public void setEmpName(String empName) 
 	{
 		//FIXME
+		this.empName = empName;
 	}
 
 	/**
@@ -51,7 +50,7 @@ public class Employee
 	public Double getSalary() 
 	{
 		//FIXME
-		return getSalary();
+		return salary;
 	}
 
 	/**
@@ -61,8 +60,7 @@ public class Employee
 	public void setSalary(double salary) 
 	{
 		//FIXME
-		Employee employee;
-		salary = employee.getSalary();
+		this.salary = salary;
 	}
 
    /**
@@ -73,7 +71,7 @@ public class Employee
 	{
 		//FIXME
 		Employee employee;
-		return employee.getJoinYear();
+		return joinYear;
 	}
 
 	/**
@@ -83,7 +81,6 @@ public class Employee
 	public void setJoinYear(int joinYear) 
 	{
 		//FIXME
-		int specifiedYear;
-		joinYear = specifiedYear;
+		this.joinYear = joinYear;
 	}
 }
