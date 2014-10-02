@@ -1,10 +1,6 @@
 package edu.indiana.cs.c212;
 
-/**
- * As a note for implementation. You should use Collections API for
- * sorting. For JodaTime DateTime comparisons you should use their provided
- * DateTimeComparator with its method getDateOnlyInstance()
- */
+
 public abstract class Person implements Comparable<Person> {
 	
 	//FIXME

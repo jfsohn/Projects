@@ -2,7 +2,11 @@ package edu.indiana.cs.c212;
 
 import org.joda.time.DateTime;
 
-
+/**
+ * As a note for implementation. You should use Collections API for
+ * sorting. For comparing grad dates use GradDateComparator.
+ *
+ */
 public class Student extends Person {
 
     private DateTime graduationDate;

@@ -2,7 +2,11 @@ package edu.indiana.cs.c212;
 
 import org.joda.time.DateTime;
 
-
+/**
+ * As a note for implementation. You should use Collections API for
+ * sorting. For comparing start dates use StartDateComparator.
+ *
+ */
 public class Professor extends Person {
     private DateTime startDate;
 
