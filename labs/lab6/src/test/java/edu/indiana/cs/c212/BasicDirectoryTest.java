@@ -51,14 +51,14 @@ public class BasicDirectoryTest {
 
     @Test
     public void getStudentsGradDateTest(){
-        List<Student> students = Arrays.asList(brain, basketCase, princess, princess, athlete, criminal);
-        Assert.assertEquals(students, directory.getStudents());
+        List<Student> students = Arrays.asList(brain, basketCase, princess, athlete, criminal);
+        Assert.assertEquals(students, directory.getStudentsSortedByGradDate());
     }
 
     @Test
     public void getProfessorsStartDateTest(){
         List<Professor> professors = Arrays.asList(principal, director);
-        Assert.assertEquals(professors, directory.getProfessors());
+        Assert.assertEquals(professors, directory.getProfsSortedByStartDate());
     }
 
     @Test
@@ -72,6 +72,5 @@ public class BasicDirectoryTest {
         List<Student> students = Arrays.asList(criminal, athlete, brain, basketCase, princess);
         Assert.assertEquals(students, directory.getStudents());
     }
-
 
 }
