@@ -26,6 +26,7 @@ public class Student extends Person {
      * in which the first name is followed by the lastname and they are separated by one
      * or more whitespace character(s)
      *
+     *
      * @param name The name of the Student
      */
     public Student(String name) {

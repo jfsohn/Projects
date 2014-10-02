@@ -1,5 +1,6 @@
 package edu.indiana.cs.c212;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,37 +8,61 @@ import java.util.List;
  */
 public class BasicDirectory implements Directory {
 
+    private List<Person> persons;
 
+    BasicDirectory(){
+        persons = new ArrayList<>();
+    }
+
+    BasicDirectory(List<Person> persons){
+        this.persons = persons;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Person> getPeople() {
         return null; //FIXME
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public List<Student> getStudent() {
+    public List<Student> getStudents() {
         return null; //FIXME
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Professor> getProfessors() {
         return null; //FIXME
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public List<Professor> getProfsByStartDate() {
+    public List<Professor> getProfsSortedByStartDate() {
         return null; //FIXME
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public List<Student> getStudentsByGradDate() {
+    public List<Student> getStudentsSortedByGradDate() {
         return null; //FIXME
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void addStudent(Student student) {
         //FIXME
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void addProfessor(Professor professor) {
         //FIXME

@@ -1,5 +1,10 @@
 package edu.indiana.cs.c212;
 
+/**
+ * As a note for implementation. You should use Collections API for
+ * sorting. For JodaTime DateTime comparisons you should use their provided
+ * DateTimeComparator with its method getDateOnlyInstance()
+ */
 public abstract class Person implements Comparable<Person> {
 	
 	//FIXME
@@ -55,17 +60,34 @@ public abstract class Person implements Comparable<Person> {
         this.lastName = lastName;
     }
 
+    /**
+     *
+     * @return Returns the first name followed by the last name separated by a single space.
+     */
     public String getName(){
-        return firstName + lastName;
+        return String.format("%s %s", firstName, lastName);
     }
 
+    /**
+     * This will set both the first and last name of the person.
+     * @param name The full name of the person given in the form of "Firsname Lastname"
+     *             There might be arbitrary whitespace inbetween the names.
+     */
     public void setName(String name){
         //FIXME
     }
 
 
+    /**
+     * Compares one person to another. If this person's name, comparing last name first,
+     * comes before the other person's name, it returns a negative number. If they are the same,
+     * it returns 0, else a positive number.
+     * -1, 0, 1 are good numbers to use.
+     * @param other The other person whose name  we are comparing to.
+     * @return  A number indicating a comparison between the names of this person and the other person.
+     */
     @Override
     public int compareTo(Person other) {
-        return 0;
+        return 0; //FIXME
     }
 }

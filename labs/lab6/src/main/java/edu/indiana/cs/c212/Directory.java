@@ -20,7 +20,7 @@ public interface Directory {
      * Sorted by last name first.
      * @return Alphabetically sorted list of all Students in the directory
      */
-    public List<Student> getStudent();
+    public List<Student> getStudents();
 
     /**
      * Returns a list of all the Students in the directory in alphabetical order.
@@ -35,7 +35,7 @@ public interface Directory {
      * listed before those with more recent start dates.
      * @return Sorted list of Professors, arranged by start date
      */
-    public List<Professor> getProfsByStartDate();
+    public List<Professor> getProfsSortedByStartDate();
 
 
     /**
@@ -44,7 +44,7 @@ public interface Directory {
      * listed before those with more recent grad dates.
      * @return Sorted list of Students, arranged by grad date
      */
-    public List<Student> getStudentsByGradDate();
+    public List<Student> getStudentsSortedByGradDate();
 
     /**
      * Add a student to the directory
