@@ -13,9 +13,9 @@ public class Lab2 {
 
 	public static int iterativeAdd(int x, int y){
 		int i = 0;
-		while (i < y) {
-			x = x + 1;
-			i = i + 1;
+		while (i < y) {  
+			x = x + 1; 
+			i = i + 1; 
 		}
 		return x;
 	}
@@ -23,7 +23,7 @@ public class Lab2 {
 	    if (y == 0) {
 	    	return 0;
 	    }   else {
-	    	  int i = x;
+	    	  int i = x;     //i = 3    x=6,12  y=3
 	    	  while (y > 1) {
 	    		  x = iterativeAdd(x , i);
 	    	      y = y -1;
