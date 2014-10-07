@@ -35,15 +35,19 @@ public class Student extends Person {
      */
     public Student(String name) {
         //FIXME
+    	return name;
     }
 
 
     public DateTime getGraduationDate() {
-        return null; //FIXME
+    	//FIXME
+    	return this.graduationDate; 
     }
 
     public void setGraduationDate(DateTime graduationDate) {
         //FIXME
+    	student.getGraduationDate();
+    	
     }
 
 }

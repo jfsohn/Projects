@@ -68,7 +68,7 @@ public class Magnet {
      */
     public String getWord() {
         //FIXME
-    	return null;
+    	return this.word;
     }
 
     /**
@@ -77,7 +77,7 @@ public class Magnet {
      */
     public Point getOrigin() {
         //FIXME
-    	return null;
+    	return this.origin;
     }
 
     /**
@@ -86,7 +86,7 @@ public class Magnet {
      */
     public JLabel getTextLabel() {
         //FIXME
-    	return null;
+    	return this.textLabel;
     }
 
     /**
@@ -95,7 +95,7 @@ public class Magnet {
      */
     public int getWidth() {
         //FIXME
-    	return -1;
+    	return this.width;
     }
 
     /**
@@ -104,7 +104,7 @@ public class Magnet {
      */
     public int getHeight() {
         //FIXME
-    	return -1;
+    	return this.height;
     }
 
     /**
@@ -113,7 +113,7 @@ public class Magnet {
      */
     public Rectangle getRectangle() {
         //FIXME
-    	return null;
+    	return this.rectangle;
     }
 
     /**
@@ -122,7 +122,7 @@ public class Magnet {
      */
     public Point getOffset() {
         //FIXME
-    	return null;
+    	return this.offset;
     }
 
     /**

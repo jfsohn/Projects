@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * @author <YOUR NAME HERE>
- * @author <YOUR PARTNER'S NAME HERE>
+ * @author <Jake Sohn>
+ * @author <Zachary Cora>
  *
  */
 @SuppressWarnings("serial")
@@ -76,6 +76,9 @@ public class Fridge extends JPanel {
     public void paintComponent(Graphics tablet) {
         super.paintComponent(tablet);
         //FIXME
+        tablet.setColor(COLOR.white);
+        tablet.fillRect(0, 0, DEFAULT_WIDTH_IN_PIXELS, DEFAULT_HEIGHT_IN_PIXELS);
+        
     }
 
     /**
@@ -84,7 +87,7 @@ public class Fridge extends JPanel {
      */
     public Dimension getPreferredSize() {
         //FIXME
-    	return null;
+    	return size;
     }
 
     /**
@@ -93,7 +96,7 @@ public class Fridge extends JPanel {
      */
     public int getWidth() {
         //FIXME
-    	return -1;
+    	return width;
     }
 
     /**
@@ -102,7 +105,7 @@ public class Fridge extends JPanel {
      */
     public int getHeight() {
         //FIXME
-    	return -1;
+    	return height;
     }
 
     /**
@@ -124,6 +127,9 @@ public class Fridge extends JPanel {
      */
     private boolean isSelected(Magnet magnet) {
     	//FIXME
+        if (magnet.contains(magnet.getOffset())){
+    	return true;
+        }
         return false;
     }
 
