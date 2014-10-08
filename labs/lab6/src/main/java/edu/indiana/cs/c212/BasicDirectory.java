@@ -91,5 +91,6 @@ public class BasicDirectory implements Directory {
     @Override
     public void addProfessor(Professor professor) {
         //FIXME
+    	persons.add(professor);
     }
 }
