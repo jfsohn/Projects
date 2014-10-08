@@ -80,7 +80,7 @@ public class ChatClientView extends JApplet {
 	 * Adds the message to the chatRoom. It should be prefixed 
 	 * with the current timestamp surrounded by [] square brackets
 	 * and postfixed with a newline so that the message is on its own line.
-	 *  
+	 *  http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
 	 * @param string the message to add to the chatRoom
 	 */
 	public void report(String string) {
