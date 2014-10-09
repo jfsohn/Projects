@@ -22,7 +22,7 @@ import java.util.Date;
  * This class depends on class ChatServer.
  */
 public class ChatServerView {
-    public static final int    DEFAULT_PORT_NUMBER = 15556;
+    public static final int    DEFAULT_PORT_NUMBER = 15001;
     public static final String NEWLINE             = "\n";
     public static final int    FRAME_WIDTH         = 600; // pixels
     public static final int    FRAME_HEIGHT        = 600; // pixels
