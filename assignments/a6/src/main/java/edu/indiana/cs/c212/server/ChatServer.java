@@ -1,28 +1,30 @@
-package edu.indiana.cs.c212;
+package edu.indiana.cs.c212.server;
+
+import edu.indiana.cs.c212.util.ChatMessage;
+import edu.indiana.cs.c212.util.ChatMessageType;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.net.ServerSocket;
-import java.util.Map;
-import java.util.LinkedHashMap;
+import java.net.Socket;
 import java.util.HashMap;
-import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * An instance of this class is a server of a chat room hosted on PORT_NUMBER.
  * It is created by an instance of ChatServerView, and for each chat client who
  * asks to join the chat room it creates a new instance of
  * ChatServerClientHandler running in a new thread to handle that client.
- * 
- * 
+ * <p/>
+ * <p/>
  * ------------- | | ========== | S | - ChatServerClientHandler1 <-> | Client |
  * | E | ========== PORT | R | ========== | V | - ChatServerClientHandler2 <-> |
  * Client | | E | ========== | R | ========== | | - ChatServerClientHandler3 <->
  * | Client | ------------- ==========
- * 
- * 
+ * <p/>
+ * <p/>
  * Background notes on basic client-server networking:
- * 
+ * <p/>
  * One standard way for a chat room to work is the hub-and-spoke model. That
  * model uses a central server and many distributed clients. The server sits on
  * some machine somewhere and client machines connect to the server to talk to
@@ -31,16 +33,16 @@ import java.util.Collection;
  * the clients appear to be talking only to each other, yet they don't need to
  * know each other's machine addresses. (This architecture can be generalized
  * for many different applications; for example, multi-player online games.)
- * 
+ * <p/>
  * Large programs are inherently complicated, but as soon as several instances
  * of them have to work across a network they become even more complicated. That
  * comes about because of two main sources of problems: network failure and
  * human error.
- * 
+ * <p/>
  * The java.net package supplies two classes, ServerSocket and Socket, to make
  * it a little easier to link people and computers over networks. Those two
  * classes work together.
- * 
+ * <p/>
  * A ServerSocket represents a listener that waits for network connection
  * requests from clients, while a Socket represents one endpoint of a network
  * connection. (In fact, it's a TCP/IP connection, as opposed to some other one,
@@ -49,13 +51,13 @@ import java.util.Collection;
  * Socket can also be created by a server to handle a connection request from a
  * client. (That is, Sockets can be either incoming or outgoing.) So a single
  * server can create multiple sockets and can also handle multiple connections.
- * 
+ * <p/>
  * Note that a ServerSocket does not itself handle connections; it just listens
  * for connection requests and creates Sockets to handle the actual connections.
  * Think of a ServerSocket like a servant who listens for knocks on a door (a
  * port) and a Socket like a servant (one of many) who is sent to actually
  * answer the door.
- * 
+ * <p/>
  * When constructing a ServerSocket object you have to specify the port number
  * (the door) on which the server will listen. That port number must be in the
  * range 0 to 65535 (i.e. 2^16 - 1), and it should generally be greater than
@@ -66,7 +68,7 @@ import java.util.Collection;
  * a port number for a port that is already in use, an IOException can occur.
  * (This means, for example, that if you kill the Server and then try to restart
  * it on the same port right away that port may be reported as busy.)
- * 
+ * <p/>
  * Once you create a ServerSocket, it listens for connection requests. If the
  * port isn't busy, the ServerSocket's accept() method will accept such a
  * request, establish a connection with the currently requesting client, and
@@ -82,12 +84,12 @@ import java.util.Collection;
  * blocked while waiting for the next one. In this particular class, the class
  * executed by such a newly spawned thread would be a new instance of
  * ChatServerClientHandler.
- * 
+ * <p/>
  * This class depends on classes ChatServerView, ChatServerClientHandler,
  * ChatMessage, ChatMessageType, and ChatMessageWriter.
- * 
+ * <p/>
  * Possible extensions for the adventurous (for advanced readers only):
- * 
+ * <p/>
  * -could keep a log of chat connections and chat messages. -could generate
  * internal ids to separate possible client name clashes. -could support
  * multiple chat rooms. -could check for decayed client lines by spawning a ping
@@ -102,9 +104,9 @@ import java.util.Collection;
  * threads create off of it. -might consider thread pooling to handle cases of
  * heavy load. -server could be made a singleton since only one can occupy a
  * port.
- * 
+ * <p/>
  * Technical note (for advanced readers only):
- * 
+ * <p/>
  * The ideal data structure to use here seems to be a map from a key to a tuple;
  * and, at first, a natural choice for such a map's key might seem to be each
  * client's name or userid. But since this is a network application, and an
@@ -117,7 +119,7 @@ import java.util.Collection;
  * casual-use chat system that would be workable over insecure and unencrypted
  * lines by arbitrary clients with no prior agreement between them as to choice
  * of chatname.
- * 
+ * <p/>
  * Here's the workaround used here: Since the server must generate a new socket
  * each time a client connects, it's feasible to use *that socket* as the map's
  * key. The most natural map would then be from each client's socket to tuples
@@ -140,93 +142,99 @@ import java.util.Collection;
  * HashMap for the socket-to-chatclient's output stream map. Oh well.
  */
 public class ChatServer implements Runnable {
-	public static final int PORT_NUMBER = ChatServerView.PORT_NUMBER;
 
-	private ChatServerView chatServerView;
-	private boolean isRunning;
-	private Map<Socket, String> socketToChatClientMap;
-	private Map<Socket, ChatMessageWriter> socketToChatWriterMap;
 
-	public ChatServer(ChatServerView chatServerView) {
-		this.chatServerView = chatServerView;
-		isRunning = false;
-		socketToChatClientMap = new LinkedHashMap<Socket, String>();
-		socketToChatWriterMap = new HashMap<Socket, ChatMessageWriter>();
-	}
+    private int                            portNumber;
+    private ChatServerView                 chatServerView;
+    private boolean                        isRunning;
+    private Map<Socket, String>            socketToChatClientMap;
+    private Map<Socket, ChatMessageWriter> socketToChatWriterMap;
 
-	public void run() {
-		isRunning = true;
-		report("chat server is running.");
 
-		ServerSocket serverSocket = null;
-		try {
-			serverSocket = new ServerSocket(PORT_NUMBER);
-			while (isRunning) {
-				Socket socket = serverSocket.accept();
-				String hostName = socket.getInetAddress().getHostName();
-				report("a client has connected from " + hostName);
-				ChatMessageWriter writer = new ChatMessageWriter(socket);
-				socketToChatWriterMap.put(socket, writer);
-				ChatServerClientHandler handler = new ChatServerClientHandler(
-						this, socket);
-				Thread thread = new Thread(handler);
-				thread.start();
-			}
-		} catch (IOException exception) {
-			report("network problem. chat server shutting down.");
-			report(exception.getMessage()); // port address already in use...
-		} catch (SecurityException exception) {
-			report("security problem. chat server shutting down.");
-			report(exception.getMessage());
-		} finally {
-			try {
-				serverSocket.close();
-			} catch (Exception exception) {
-				report("reporting a problem i can't do anything about");
-				report(exception.getMessage());
-			}
-		}
-	}
+    public ChatServer(ChatServerView chatServerView) {
+        this.chatServerView = chatServerView;
+        isRunning = false;
+        socketToChatClientMap = new LinkedHashMap<>();
+        socketToChatWriterMap = new HashMap<>();
+        portNumber = chatServerView.getPortNumber();
+    }
 
-	public void stop() {
-		report("chat server is stopping.");
-		isRunning = false;
-	}
 
-	public void report(String string) {
-		chatServerView.report(string);
-	}
+    public void run() {
+        isRunning = true;
+        report("chat server is running.");
 
-	public synchronized void remove(Socket socket) throws IOException {
-		(socketToChatWriterMap.get(socket)).close();
-		socketToChatWriterMap.remove(socket);		
-	}
+        ServerSocket serverSocket = null;
+        try {
+            serverSocket = new ServerSocket(portNumber);
+            while (isRunning) {
+                Socket socket = serverSocket.accept();
+                String hostName = socket.getInetAddress().getHostName();
+                report("a client has connected from " + hostName);
+                ChatMessageWriter writer = new ChatMessageWriter(socket);
+                socketToChatWriterMap.put(socket, writer);
+                ChatServerClientHandler handler = new ChatServerClientHandler(
+                        this, socket);
+                Thread thread = new Thread(handler);
+                thread.start();
+            }
+        } catch (IOException exception) {
+            report("network problem. chat server shutting down.");
+            report(exception.getMessage()); // port address already in use...
+        } catch (SecurityException exception) {
+            report("security problem. chat server shutting down.");
+            report(exception.getMessage());
+        } finally {
+            try {
+                assert serverSocket != null;
+                serverSocket.close();
+            } catch (Exception exception) {
+                report("reporting a problem i can't do anything about");
+                report(exception.getMessage());
+            }
+        }
+    }
 
-	public synchronized void addToChattersList(Socket socket, String chatClient) {
-		socketToChatClientMap.put(socket, chatClient);
-	}
+    public void stop() {
+        report("chat server is stopping.");
+        isRunning = false;
+    }
 
-	public synchronized void removeFromChattersList(Socket socket) {
-		socketToChatClientMap.remove(socket);
-	}
+    public void report(String string) {
+        chatServerView.report(string);
+    }
 
-	public synchronized void broadcastChattersList() {
-		String NEWLINE = "\n";
-		String string = "";
-		for (String client : socketToChatClientMap.values()) {
-			string += client + NEWLINE;
-		}
+    public synchronized void remove(Socket socket) throws IOException {
+        (socketToChatWriterMap.get(socket)).close();
+        socketToChatWriterMap.remove(socket);
+    }
 
-		broadcastMessage(ChatMessageType.UPDATE, string);
-	}
+    public synchronized void addToChattersList(Socket socket, String chatClient) {
+        socketToChatClientMap.put(socket, chatClient);
+    }
 
-	public synchronized void broadcastMessage(ChatMessageType type,
-			String string) {
-		ChatMessage message = new ChatMessage(type, string);
-		for (ChatMessageWriter writer : socketToChatWriterMap.values()) {
-			boolean success = writer.put(message);
-			if (!success)
-				report("warning: network failure on writer " + writer);
-		}
-	}
+    public synchronized void removeFromChattersList(Socket socket) {
+        socketToChatClientMap.remove(socket);
+    }
+
+    public synchronized void broadcastChattersList() {
+        String NEWLINE = "\n";
+        String string = "";
+        for (String client : socketToChatClientMap.values()) {
+            string += client + NEWLINE;
+        }
+
+        broadcastMessage(ChatMessageType.UPDATE, string);
+    }
+
+    public synchronized void broadcastMessage(ChatMessageType type,
+                                              String string) {
+        ChatMessage message = new ChatMessage(type, string);
+        for (ChatMessageWriter writer : socketToChatWriterMap.values()) {
+            boolean success = writer.put(message);
+            if (!success) {
+                report("warning: network failure on writer " + writer);
+            }
+        }
+    }
 }

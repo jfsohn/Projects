@@ -1,4 +1,4 @@
-package edu.indiana.cs.c212;
+package edu.indiana.cs.c212.util;
 
 import java.io.Serializable;
 
@@ -9,25 +9,25 @@ import java.io.Serializable;
  * network transport it will be converted to a stream of bits and sent down an
  * ObjectOutputStream then reconstituted back into an object at the other end in
  * an ObjectInputStream.
- * 
+ * <p/>
  * This class depends on class ChatMessageType.
  */
 public class ChatMessage implements Serializable {
-	protected static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 1L;
 
-	private ChatMessageType type;
-	private String message;
+    private ChatMessageType type;
+    private String          message;
 
-	public ChatMessage(ChatMessageType type, String message) {
-		this.type = type;
-		this.message = message;
-	}
+    public ChatMessage(ChatMessageType type, String message) {
+        this.type = type;
+        this.message = message;
+    }
 
-	public ChatMessageType getType() {
-		return type;
-	}
+    public ChatMessageType getType() {
+        return type;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 }

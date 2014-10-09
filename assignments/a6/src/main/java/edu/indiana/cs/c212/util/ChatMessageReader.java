@@ -1,8 +1,8 @@
-package edu.indiana.cs.c212;
+package edu.indiana.cs.c212.util;
 
-import java.io.ObjectInputStream;
-import java.io.IOException;
 import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
 /**
@@ -12,29 +12,29 @@ import java.net.Socket;
  * down a network socket back into objects, then it examines the objects
  * received, via its superclass' readObject() method, to see if those objects
  * are in fact ChatMessages.
- * 
+ * <p/>
  * This class, paired with ChatMessageWriter, hides some of the complexity of
  * network communication from upper levels of the chat session code.
- * 
+ * <p/>
  * This class depends on classes ChatMessage and ChatMessageType.
  */
 public class ChatMessageReader extends ObjectInputStream {
-	public static final ChatMessage END_OF_STREAM = new ChatMessage(
-			ChatMessageType.END_OF_STREAM, "");
-	public static final ChatMessage ALIEN_MESSAGE = new ChatMessage(
-			ChatMessageType.UNKNOWN_TYPE, "");
+    public static final ChatMessage END_OF_STREAM = new ChatMessage(
+            ChatMessageType.END_OF_STREAM, "");
+    public static final ChatMessage ALIEN_MESSAGE = new ChatMessage(
+            ChatMessageType.UNKNOWN_TYPE, "");
 
-	public ChatMessageReader(Socket socket) throws IOException {
-		super(socket.getInputStream());
-	}
+    public ChatMessageReader(Socket socket) throws IOException {
+        super(socket.getInputStream());
+    }
 
-	public ChatMessage get() throws IOException {
-		try {
-			return (ChatMessage) readObject();
-		} catch (EOFException exception) {
-			return END_OF_STREAM;
-		} catch (ClassNotFoundException exception) {
-			return ALIEN_MESSAGE;
-		}
-	}
+    public ChatMessage get() throws IOException {
+        try {
+            return (ChatMessage) readObject();
+        } catch (EOFException exception) {
+            return END_OF_STREAM;
+        } catch (ClassNotFoundException exception) {
+            return ALIEN_MESSAGE;
+        }
+    }
 }
