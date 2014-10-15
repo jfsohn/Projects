@@ -8,51 +8,51 @@ import static org.junit.Assert.assertTrue;
 
 public class Lab7Test {
 		
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3GetTitle1(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		assertEquals("Here Comes the Sun", mp3.getTitle());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3GetLength1(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		assertEquals(185, mp3.getLengthInSeconds());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3GetArtist1(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		assertEquals("The Beatles", mp3.getArtist());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3GetCopyrightYear1(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		assertEquals(1969, mp3.getCopyrightYear());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3getGenre(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		assertEquals("British Rock", mp3.getGenre());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3setGenre(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		mp3.setGenre("Ed Sullivan Rock");
 		assertEquals("Ed Sullivan Rock", mp3.getGenre());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3MakeCopy(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		MP3 mp3copy = mp3.makeCopy();
 		assertEquals(mp3, mp3copy);
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMP3MakeCopy2(){
 		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
 		MP3 mp3copy = mp3.makeCopy();
@@ -60,7 +60,7 @@ public class Lab7Test {
 		assertFalse(mp3copy.equals(mp3));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetTitle1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -71,7 +71,7 @@ public class Lab7Test {
 		assertEquals("2 Greatest Hits", beatles.getTitle());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetLengthInSeconds1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -82,7 +82,7 @@ public class Lab7Test {
 		assertEquals(615, beatles.getLengthInSeconds());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetArtist1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -93,7 +93,7 @@ public class Lab7Test {
 		assertEquals("The Beatles", beatles.getArtist());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetPublisher1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -104,7 +104,7 @@ public class Lab7Test {
 		assertEquals("Capitol Records", beatles.getPublisher());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetCopyrightYear1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -115,7 +115,7 @@ public class Lab7Test {
 		assertEquals(1982, beatles.getCopyrightYear());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetNumberOfTracks1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -126,7 +126,7 @@ public class Lab7Test {
 		assertEquals(2, (int)beatles.getNumberOfTracks());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetGenre1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -137,7 +137,7 @@ public class Lab7Test {
 		assertEquals("British Rock", beatles.getGenre());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDSetGenre1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -149,7 +149,7 @@ public class Lab7Test {
 		assertEquals("Classy Rock", beatles.getGenre());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDGetTracks1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -162,7 +162,7 @@ public class Lab7Test {
 		}
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDMakeCopy1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -174,7 +174,7 @@ public class Lab7Test {
 		assertEquals(beatles, beatlesCopy);
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCDMakeCopy2(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -187,7 +187,7 @@ public class Lab7Test {
 		assertFalse(beatles.equals(beatlesCopy));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCopyMediaCollection1(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -207,7 +207,7 @@ public class Lab7Test {
 		}
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCopyMediaCollection2(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -226,7 +226,7 @@ public class Lab7Test {
 		assertFalse(collection.getCollection().get(0).equals(collectionCopy.getCollection().get(0)));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCopyMediaCollection3(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
@@ -245,7 +245,7 @@ public class Lab7Test {
 		assertFalse(collection.getCollection().get(1).equals(collectionCopy.getCollection().get(1)));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCopyMediaCollection4(){
 		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
 		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
