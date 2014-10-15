@@ -12,18 +12,15 @@ public class MP3 extends Media{
 	 * @param copyrightYear, the year the MP3 was copyrighted
 	 */
 	public MP3(String artist, String title, int lengthInSeconds, String genre, int copyrightYear){
-		this.artist = artist;
-		this.title = title;
-		this.lengthInSeconds = lengthInSeconds;
-		this.genre = genre;
-		this.copyrightYear = copyrightYear;
+		//FIXME
 	}
 
 	/**
 	 * @return the genre of the MP3
 	 */
 	public String getGenre(){
-		return this.genre;
+		//FIXME
+		return null;
 	}
 	
 	/**
@@ -32,7 +29,7 @@ public class MP3 extends Media{
 	 * @param genre, the new genre of the MP3
 	 */
 	public void setGenre(String genre){
-		this.genre = genre;
+		//FIXME
 	}
 	
 	/* (non-Javadoc)
@@ -40,14 +37,16 @@ public class MP3 extends Media{
 	 */
 	@Override
 	public MP3 makeCopy() {
-		return new MP3(this.artist, this.title, this.lengthInSeconds, this.genre, this.copyrightYear);
+		//FIXME
+		return null;
 	}
 	
 	/**
 	 * @return the recording artist for the MP3
 	 */
 	public String getArtist(){
-		return this.artist;
+		//FIXME
+		return null;
 	}
 	
 	/* (non-Javadoc)

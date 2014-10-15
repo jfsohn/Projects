@@ -123,7 +123,7 @@ public class Lab7Test {
 		BeatlesGreatestHitsTracks.add(hereComesTheSun);
 		BeatlesGreatestHitsTracks.add(heyJude);
 		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
-		assertEquals(2, beatles.getNumberOfTracks());
+		assertEquals(2, (int)beatles.getNumberOfTracks());
 	}
 	
 	@Test

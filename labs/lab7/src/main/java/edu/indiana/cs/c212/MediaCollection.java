@@ -19,11 +19,8 @@ public class MediaCollection {
 	 * @return a copy of the media collection
 	 */
 	public MediaCollection copyCollection(){
-		MediaCollection mediaCollectionCopy = new MediaCollection(this.name);
-		for(Media media : collection){
-			mediaCollectionCopy.add(media.makeCopy());
-		}
-		return mediaCollectionCopy;
+		//FIXME
+		return null;
 	}
 	
 	/**
@@ -88,9 +85,9 @@ public class MediaCollection {
 	public double getTotalPlaytimeInHours(){
 		double playtime = 0;
 		for(Media m : collection){
-			playtime += m.getLengthInSeconds();
+			playtime += m.getLengthInHours();
 		}
-		return playtime/3600;
+		return playtime;
 	}
 	
 	/*toString method, allows us to nicely display the whole collection.

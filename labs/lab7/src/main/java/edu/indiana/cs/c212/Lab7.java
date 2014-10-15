@@ -27,27 +27,38 @@ public class Lab7 extends JPanel implements ActionListener{
 		JButton colorSwapBlue = new JButton("Red/Green Gradient");
 		colorSwapBlue.setBackground(new Color(255,255,0));
 		colorSwapBlue.setEnabled(true);
+			
+		//FIXME
+		/*add a JButton called colorSwapRed with text "Green/Blue Gradient"
+		  then set its background to the appropriate color (should have no red)
+		  and enable it
+		*/
+
 		
-		JButton colorSwapRed = new JButton("Green/Blue Gradient");
-		colorSwapRed.setBackground(new Color(0,255,255));
-		colorSwapRed.setEnabled(true);
-		
-		JButton colorSwapGreen = new JButton("Random");		
-		colorSwapGreen.setEnabled(true);
+		//FIXME
+		/*create a JButton called colorSwapGreen with text "Random"
+		  and enable it
+		*/
 		
 		colorSwapBlue.addActionListener(this);
-		colorSwapRed.addActionListener(this);
-		colorSwapGreen.addActionListener(this);
 		
-		panel.add(colorSwapBlue);
-		panel.add(colorSwapRed);
-		panel.add(colorSwapGreen);
+		//FIXME
+		/*uncomment the two lines below once you've created the JButtons above
+		  colorSwapRed.addActionListener(this);
+		  colorSwapGreen.addActionListener(this);
+		*/
+		
+		//FIXME
+		//Add the three buttons to the panel in the order they were created, then return the panel
 		return panel;			
 	}
 
 
 	private static final int BOX_SIZE = 10;
 	
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	@Override
 	public void paintComponent(Graphics g){
 		int width = this.getWidth();
@@ -74,6 +85,17 @@ public class Lab7 extends JPanel implements ActionListener{
 	 */
 	
 	private void paintBox(Graphics g, int i, int j, Color color){
+		//FIXME
+		/*1. set the color of g to the given color
+		  2. call fillRect on g at the appropriate location based on i,j with the appropriate
+		     height and width.  It may be helpful to remember your Sudoku assignment to remember how
+		     to position the box you'll be coloring in and to look at the various paintGradient
+		     methods that call paintBox.
+		
+		  3. Set the color of g to Black using setColor
+		  4. draw the rectangle you filled in above by calling drawRect
+		     on g (with those same parameters you used in fillRect).
+		*/
 		g.setColor(color);
 		g.fillRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
 		g.setColor(Color.BLACK);
@@ -137,8 +159,8 @@ public class Lab7 extends JPanel implements ActionListener{
 		for (int i = 0; i < numboxes; i++){
 			for (int j = 0; j < numboxes; j++){				
 				int partRed = random.nextInt(255);
-				int partGreen = random.nextInt(255);;
-				int partBlue =  random.nextInt(255);;
+				int partGreen = random.nextInt(255);
+				int partBlue =  random.nextInt(255);
 				
 				paintBox(g, i, j, new Color(partRed, partGreen, partBlue));
 			}
@@ -158,11 +180,12 @@ public class Lab7 extends JPanel implements ActionListener{
 		this.repaint();
 	}
 	
-	
-
+	//Pay close attention to the operations and their order in the main method.
+	//Use this as a reference when working in Swing.
 	public static void main(String[] args){
-		//Create the frame
+		//Create a JFrame
 		JFrame frame = new JFrame();
+		//Create an instance of Lab7 (remember that Lab7 is a JPanel!)
 		Lab7 l7 = new Lab7();
 		//Set what happens when the frame closes
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
