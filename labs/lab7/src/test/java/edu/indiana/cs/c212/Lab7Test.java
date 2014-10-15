@@ -1,0 +1,191 @@
+package edu.indiana.cs.c212;
+
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class Lab7Test {
+		
+	@Test
+	public void testMP3GetTitle1(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		assertEquals("Here Comes the Sun", mp3.getTitle());
+	}
+	
+	@Test
+	public void testMP3GetLength1(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		assertEquals(185, mp3.getLengthInSeconds());
+	}
+	
+	@Test
+	public void testMP3GetArtist1(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		assertEquals("The Beatles", mp3.getArtist());
+	}
+	
+	@Test
+	public void testMP3GetCopyrightYear1(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		assertEquals(1969, mp3.getCopyrightYear());
+	}
+	
+	@Test
+	public void testMP3getGenre(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		assertEquals("British Rock", mp3.getGenre());
+	}
+	
+	@Test
+	public void testMP3setGenre(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		mp3.setGenre("Ed Sullivan Rock");
+		assertEquals("Ed Sullivan Rock", mp3.getGenre());
+	}
+	
+	@Test
+	public void testMP3MakeCopy(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		MP3 mp3copy = mp3.makeCopy();
+		assertEquals(mp3, mp3copy);
+	}
+	
+	@Test
+	public void testMP3MakeCopy2(){
+		MP3 mp3 = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		MP3 mp3copy = mp3.makeCopy();
+		mp3copy.setGenre("Pop Rock");
+		assertFalse(mp3copy.equals(mp3));
+	}
+	
+	@Test
+	public void testCDGetTitle1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals("2 Greatest Hits", beatles.getTitle());
+	}
+	
+	@Test
+	public void testCDGetLengthInSeconds1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals(615, beatles.getLengthInSeconds());
+	}
+	
+	@Test
+	public void testCDGetArtist1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals("The Beatles", beatles.getArtist());
+	}
+	
+	@Test
+	public void testCDGetPublisher1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals("Capitol Records", beatles.getPublisher());
+	}
+	
+	@Test
+	public void testCDGetCopyrightYear1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals(1982, beatles.getCopyrightYear());
+	}
+	
+	@Test
+	public void testCDGetNumberOfTracks1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals(2, beatles.getNumberOfTracks());
+	}
+	
+	@Test
+	public void testCDGetGenre1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		assertEquals("British Rock", beatles.getGenre());
+	}
+	
+	@Test
+	public void testCDSetGenre1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		beatles.setGenre("Classy Rock");
+		assertEquals("Classy Rock", beatles.getGenre());
+	}
+	
+	@Test
+	public void testCDGetTracks1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		for(int i = 0; i < 2; i++){
+			assertTrue(BeatlesGreatestHitsTracks.get(i).equals(beatles.getTracks().get(i)));
+		}
+	}
+	
+	@Test
+	public void testCDMakeCopy1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		CD beatlesCopy = beatles.makeCopy();
+		assertEquals(beatles, beatlesCopy);
+	}
+	
+	@Test
+	public void testCDMakeCopy2(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		CD beatlesCopy = beatles.makeCopy();
+		beatlesCopy.setGenre("The Most Classic of Rock");
+		assertFalse(beatles.equals(beatlesCopy));
+	}
+}
