@@ -10,16 +10,16 @@ public class CD extends Media{
 	private int numberOfTracks;
 	private String genre;
 	
-	public CD(String title, String artist, int copyrightYear, ArrayList<MP3> songs, String publisher, String genre){
+	public CD(String title, String artist, int copyrightYear, ArrayList<MP3> tracks, String publisher, String genre){
 		this.title = title;
 		this.artist = artist;
 		this.copyrightYear = copyrightYear;
-		this.trackList = songs;
+		this.trackList = tracks;
 		this.publisher = publisher;
-		this.numberOfTracks = songs.size();
+		this.numberOfTracks = tracks.size();
 		this.genre = genre;
-		for(MP3 song : songs){
-			this.lengthInSeconds += song.lengthInSeconds;
+		for(MP3 track : tracks){
+			this.lengthInSeconds += track.lengthInSeconds;
 		}
 	}
 
@@ -39,20 +39,40 @@ public class CD extends Media{
 	public String getGenre(){
 		return this.genre;
 	}
+	public void setGenre(String genre){
+		this.genre = genre;
+	}
 	
 	public int getNumberOfTracks(){
 		return this.numberOfTracks;
 	}
 	
+	public String getArtist(){
+		return this.artist;
+	}
+	
+	public ArrayList<MP3> getTracks(){
+		return this.trackList;
+	}
+	
 	public boolean equals(Object objcd){
 		if(objcd instanceof CD){
 			CD cd = (CD) objcd;
-			return (this.title.equals(cd.title) &&
-					this.artist.equals(cd.artist) &&
-					this.copyrightYear == cd.copyrightYear &&
-					this.numberOfTracks == cd.numberOfTracks &&
-					this.publisher.equals(cd.publisher) &&
-					this.trackList.equals(cd.trackList));
+			boolean base = this.title.equals(cd.title) &&
+							this.artist.equals(cd.artist) &&
+							this.copyrightYear == cd.copyrightYear &&
+							this.numberOfTracks == cd.numberOfTracks &&
+							this.publisher.equals(cd.publisher) &&
+							this.genre.equals(cd.genre) &&
+							this.trackList.equals(cd.trackList);
+			if(base){
+				for(int i = 0; i < cd.numberOfTracks; i++){
+					if(!this.trackList.get(i).equals(cd.trackList.get(i))){
+						return false;
+					}
+				}
+				return true;
+			}
 		}	
 		return false;
 	}

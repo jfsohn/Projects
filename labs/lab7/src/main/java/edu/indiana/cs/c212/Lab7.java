@@ -42,8 +42,7 @@ public class Lab7 extends JPanel implements ActionListener{
 		panel.add(colorSwapBlue);
 		panel.add(colorSwapRed);
 		panel.add(colorSwapGreen);
-		return panel;
-				
+		return panel;			
 	}
 
 
@@ -97,7 +96,7 @@ public class Lab7 extends JPanel implements ActionListener{
 				int partRed = (i)*(255/(numboxes)) ;
 				int partGreen = (j)*(255/(numboxes));
 				int partBlue =  0;
-				paintBox(g, i, j,new Color(partRed, partGreen, partBlue));
+				paintBox(g, i, j, new Color(partRed, partGreen, partBlue));
 			}
 		}
 	} 
@@ -119,7 +118,7 @@ public class Lab7 extends JPanel implements ActionListener{
 				int partGreen = (i)*(255/(numboxes)) ;
 				int partBlue =  (j)*(255/(numboxes));
 				
-				paintBox(g, i, j,new Color(partRed, partGreen, partBlue));
+				paintBox(g, i, j, new Color(partRed, partGreen, partBlue));
 			}
 		}
 	}
@@ -130,7 +129,7 @@ public class Lab7 extends JPanel implements ActionListener{
 	 * In order to generate the colors, you should generate 3 random colors in the range
 	 * 0-255 and create a new Color Object with them.
 	 * To generate random integers, use the Random Class
-	 * @param g the grapics context to draw
+	 * @param g the graphics context to draw
 	 * @param numboxes the number of boxes per side
 	 */
 	private void paintGradientRandom(Graphics g, int numboxes){	
@@ -141,7 +140,7 @@ public class Lab7 extends JPanel implements ActionListener{
 				int partGreen = random.nextInt(255);;
 				int partBlue =  random.nextInt(255);;
 				
-				paintBox(g, i, j,new Color(partRed, partGreen, partBlue));
+				paintBox(g, i, j, new Color(partRed, partGreen, partBlue));
 			}
 		}
 	}
@@ -162,15 +161,21 @@ public class Lab7 extends JPanel implements ActionListener{
 	
 
 	public static void main(String[] args){
+		//Create the frame
 		JFrame frame = new JFrame();
 		Lab7 l7 = new Lab7();
-		JPanel jpmorgan = l7.makeButtons();
-		frame.add(jpmorgan, BorderLayout.PAGE_START);
-		frame.add(l7, BorderLayout.CENTER);
+		//Set what happens when the frame closes
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
-		
+		//Set the default size of the frame
 		frame.setSize(700, 700);
+		//Create components to add to the frame
+		JPanel buttonPanel = l7.makeButtons();
+		//Add the components to the frame and specify a layout
+		frame.add(buttonPanel, BorderLayout.PAGE_START);
+		frame.add(l7, BorderLayout.CENTER);
+		//Pack the frame
+		frame.pack();
+		//Set the frame to visible so it shows up
 		frame.setVisible(true);			
 	}	
 }

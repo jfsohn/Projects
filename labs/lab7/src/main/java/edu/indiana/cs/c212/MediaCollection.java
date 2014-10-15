@@ -41,14 +41,11 @@ public class MediaCollection {
 	
 	//removes all copies of the given media from the collection
 	public void remove(Media m){
-		ArrayList<Media> toBeRemoved = new ArrayList<Media>();
-		for(Media current : this.collection){
-			if(m.getClass().equals(current.getClass()) && m.equals(current)){
-				toBeRemoved.add(current);
+		for(int i = 0; i < collection.size(); i++){
+			if(m.getClass().equals(collection.get(i).getClass()) && m.equals(collection.get(i))){
+				collection.remove(i);
+				i--;
 			}
-		}
-		for(Media removed : toBeRemoved){
-			collection.remove(removed);
 		}
 	}
 	
@@ -74,16 +71,7 @@ public class MediaCollection {
 		String output = this.name + "\n";
 		int count = 1;
 		for(Media media : this.collection){
-			output += count + ": ";
-			if(media instanceof DVD){
-				output += ((DVD) media).toString() + "\n";
-			}
-			else if(media instanceof CD){
-				output += ((CD)media).toString() + "\n";
-			}
-			else if(media instanceof MP3){
-				output += ((MP3)media).toString() + "\n";
-			}
+			output += count + ": " + media.toString() + "\n";
 			count++;
 		}
 		return output;

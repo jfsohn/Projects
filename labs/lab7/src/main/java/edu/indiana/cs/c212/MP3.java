@@ -16,9 +16,17 @@ public class MP3 extends Media{
 		return this.genre;
 	}
 	
+	public void setGenre(String genre){
+		this.genre = genre;
+	}
+	
 	@Override
 	public MP3 makeCopy() {
 		return new MP3(this.artist, this.title, this.lengthInSeconds, this.genre, this.copyrightYear);
+	}
+	
+	public String getArtist(){
+		return this.artist;
 	}
 	
 	public boolean equals(Object objmp3){

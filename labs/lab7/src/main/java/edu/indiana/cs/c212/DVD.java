@@ -21,6 +21,14 @@ public class DVD extends Media{
 	public String getDirector(){
 		return this.director;
 	}
+	
+	public String getGenre(){
+		return this.genre;
+	}
+	
+	public void setGenre(String genre){
+		this.genre = genre;
+	}
 
 	@Override
 	public DVD makeCopy() {
