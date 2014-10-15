@@ -5,10 +5,7 @@ import java.util.ArrayList;
 public class CD extends Media{
 
 	private ArrayList<MP3> trackList;
-	private String title;
 	private String artist;
-	private int copyrightYear;
-	private int lengthInSeconds;
 	private String publisher;
 	private int numberOfTracks;
 	private String genre;
@@ -21,21 +18,9 @@ public class CD extends Media{
 		this.publisher = publisher;
 		this.numberOfTracks = songs.size();
 		this.genre = genre;
-	}
-	
-	@Override
-	public String getTitle() {
-		return this.title;
-	}
-
-	@Override
-	public int getLengthInSeconds() {
-		return this.lengthInSeconds;
-	}
-
-	@Override
-	public int getCopyrightYear() {
-		return this.copyrightYear;
+		for(MP3 song : songs){
+			this.lengthInSeconds += song.lengthInSeconds;
+		}
 	}
 
 	@Override
@@ -59,13 +44,17 @@ public class CD extends Media{
 		return this.numberOfTracks;
 	}
 	
-	public boolean equals(CD cd){
-		return (this.title.equals(cd.title) &&
-				this.artist.equals(cd.artist) &&
-				this.copyrightYear == cd.copyrightYear &&
-				this.numberOfTracks == cd.numberOfTracks &&
-				this.publisher.equals(cd.publisher) &&
-				this.trackList.equals(cd.trackList));
+	public boolean equals(Object objcd){
+		if(objcd instanceof CD){
+			CD cd = (CD) objcd;
+			return (this.title.equals(cd.title) &&
+					this.artist.equals(cd.artist) &&
+					this.copyrightYear == cd.copyrightYear &&
+					this.numberOfTracks == cd.numberOfTracks &&
+					this.publisher.equals(cd.publisher) &&
+					this.trackList.equals(cd.trackList));
+		}	
+		return false;
 	}
 	
 	@Override

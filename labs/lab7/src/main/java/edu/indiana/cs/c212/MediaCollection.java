@@ -5,11 +5,9 @@ public class MediaCollection {
 	
 	private ArrayList<Media> collection;
 	private String name;
-	private int size;
 	
 	MediaCollection(String name){
 		this.name = name;
-		this.size = 0;
 		this.collection = new ArrayList<Media>();
 	}
 	
@@ -29,14 +27,12 @@ public class MediaCollection {
 	
 	//removes all media from the collection
 	public void removeAllMedia(){
-		this.size = 0;
-		this.collection = new ArrayList<Media>();
+		collection.clear();
 	}
 	
 	//adds the given media to the collection
 	public void add(Media m){
 		this.collection.add(m);
-		this.size++;
 	}
 	
 	public String getName(){
@@ -47,28 +43,18 @@ public class MediaCollection {
 	public void remove(Media m){
 		ArrayList<Media> toBeRemoved = new ArrayList<Media>();
 		for(Media current : this.collection){
-			if(m.getClass().equals(current.getClass())){
-				if(m instanceof DVD && ((DVD)m).equals((DVD) current)){
-					toBeRemoved.add(current);
-				}
-				else if(m instanceof CD && ((CD)m).equals((CD) current)){
-					toBeRemoved.add(current);
-				}
-				else if(m instanceof MP3 && ((MP3)m).equals((MP3) current)){
-					toBeRemoved.add(current);
-				}
+			if(m.getClass().equals(current.getClass()) && m.equals(current)){
+				toBeRemoved.add(current);
 			}
 		}
 		for(Media removed : toBeRemoved){
-			if(collection.remove(removed)){
-				size--;
-			}
+			collection.remove(removed);
 		}
 	}
 	
 	//returns the number of items in the collection
 	public int getSize(){
-		return this.size;
+		return collection.size();
 	}
 	
 	//returns the total play time of all media in the collection in hours
@@ -85,7 +71,7 @@ public class MediaCollection {
 	method will use that Object's toString method to get the string it prints */
 	@Override
 	public String toString(){
-		String output = "";
+		String output = this.name + "\n";
 		int count = 1;
 		for(Media media : this.collection){
 			output += count + ": ";

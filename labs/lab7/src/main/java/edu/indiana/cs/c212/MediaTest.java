@@ -23,8 +23,11 @@ public class MediaTest {
 		//Make a media collection and add the above media to the collection
 		MediaCollection myCollection = new MediaCollection("My Media");
 		myCollection.add(theHobbit);
+		myCollection.add(theHobbit.makeCopy());
 		myCollection.add(beatles);
 		myCollection.add(tubThumping);
+		System.out.println(myCollection);
+		myCollection.remove(theHobbit);
 		System.out.println(myCollection);
 	}
 

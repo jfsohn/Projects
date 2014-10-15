@@ -1,9 +1,6 @@
 package edu.indiana.cs.c212;
 
 public class DVD extends Media{
-	private String title;
-	private int copyrightYear;
-	private int lengthInSeconds;
 	private String studio;
 	private String genre;
 	private String director;
@@ -15,21 +12,6 @@ public class DVD extends Media{
 		this.studio = studio;
 		this.genre = genre;
 		this.director = director;
-	}
-	
-	@Override
-	public String getTitle() {
-		return this.title;
-	}
-
-	@Override
-	public int getLengthInSeconds() {
-		return this.lengthInSeconds;
-	}
-
-	@Override
-	public int getCopyrightYear() {
-		return this.copyrightYear;
 	}
 	
 	public String getStudio(){
@@ -45,13 +27,17 @@ public class DVD extends Media{
 		return new DVD(this.title, this.copyrightYear, this.lengthInSeconds, this.studio, this.genre, this.director);
 	}
 	
-	public boolean equals(DVD dvd){
-		return(this.title.equals(dvd.title) &&
-				this.copyrightYear == dvd.copyrightYear &&
-				this.lengthInSeconds == dvd.lengthInSeconds &&
-				this.studio.equals(dvd.studio) &&
-				this.genre.equals(dvd.genre) &&
-				this.director.equals(dvd.director));
+	public boolean equals(Object objdvd){
+		if(objdvd instanceof DVD){
+			DVD dvd = (DVD) objdvd;
+			return(this.title.equals(dvd.title) &&
+					this.copyrightYear == dvd.copyrightYear &&
+					this.lengthInSeconds == dvd.lengthInSeconds &&
+					this.studio.equals(dvd.studio) &&
+					this.genre.equals(dvd.genre) &&
+					this.director.equals(dvd.director));
+		}
+		return false;
 	}
 	
 	@Override
