@@ -1,8 +1,6 @@
 package edu.indiana.cs.c212;
 
 import java.util.ArrayList;
-
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -187,5 +185,82 @@ public class Lab7Test {
 		CD beatlesCopy = beatles.makeCopy();
 		beatlesCopy.setGenre("The Most Classic of Rock");
 		assertFalse(beatles.equals(beatlesCopy));
+	}
+	
+	@Test
+	public void testCopyMediaCollection1(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		MP3 tubThumping = new MP3("Chumbawumba", "Tubthumping", 214, "Pop Rock", 1997);
+		DVD theHobbit = new DVD("The Hobbit: An Unexpected Journey", 2012, 10140, "New Line Cinema", "Fantasy", "Peter Jackson");
+		MediaCollection collection = new MediaCollection("My Collection");
+		collection.add(beatles);
+		collection.add(tubThumping);
+		collection.add(theHobbit);
+		MediaCollection collectionCopy = collection.copyCollection();
+		for(int i = 0; i < collection.getSize(); i++){
+			assertTrue(collection.getCollection().get(i).equals(collectionCopy.getCollection().get(i)));
+		}
+	}
+	
+	@Test
+	public void testCopyMediaCollection2(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		MP3 tubThumping = new MP3("Chumbawumba", "Tubthumping", 214, "Pop Rock", 1997);
+		DVD theHobbit = new DVD("The Hobbit: An Unexpected Journey", 2012, 10140, "New Line Cinema", "Fantasy", "Peter Jackson");
+		MediaCollection collection = new MediaCollection("My Collection");
+		collection.add(beatles);
+		collection.add(tubThumping);
+		collection.add(theHobbit);
+		MediaCollection collectionCopy = collection.copyCollection();
+		((CD) collectionCopy.getCollection().get(0)).setGenre("British Invasion");
+		assertFalse(collection.getCollection().get(0).equals(collectionCopy.getCollection().get(0)));
+	}
+	
+	@Test
+	public void testCopyMediaCollection3(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		MP3 tubThumping = new MP3("Chumbawumba", "Tubthumping", 214, "Pop Rock", 1997);
+		DVD theHobbit = new DVD("The Hobbit: An Unexpected Journey", 2012, 10140, "New Line Cinema", "Fantasy", "Peter Jackson");
+		MediaCollection collection = new MediaCollection("My Collection");
+		collection.add(beatles);
+		collection.add(tubThumping);
+		collection.add(theHobbit);
+		MediaCollection collectionCopy = collection.copyCollection();
+		((MP3) collectionCopy.getCollection().get(1)).setGenre("90's Pop");
+		assertFalse(collection.getCollection().get(1).equals(collectionCopy.getCollection().get(1)));
+	}
+	
+	@Test
+	public void testCopyMediaCollection4(){
+		MP3 heyJude = new MP3("The Beatles", "Hey Jude", 430, "British Rock", 1968);
+		MP3 hereComesTheSun = new MP3("The Beatles", "Here Comes the Sun", 185, "British Rock", 1969);
+		ArrayList<MP3> BeatlesGreatestHitsTracks = new ArrayList<MP3>();
+		BeatlesGreatestHitsTracks.add(hereComesTheSun);
+		BeatlesGreatestHitsTracks.add(heyJude);
+		CD beatles = new CD("2 Greatest Hits", "The Beatles", 1982, BeatlesGreatestHitsTracks, "Capitol Records", "British Rock");
+		MP3 tubThumping = new MP3("Chumbawumba", "Tubthumping", 214, "Pop Rock", 1997);
+		DVD theHobbit = new DVD("The Hobbit: An Unexpected Journey", 2012, 10140, "New Line Cinema", "Fantasy", "Peter Jackson");
+		MediaCollection collection = new MediaCollection("My Collection");
+		collection.add(beatles);
+		collection.add(tubThumping);
+		collection.add(theHobbit);
+		MediaCollection collectionCopy = collection.copyCollection();
+		((DVD) collectionCopy.getCollection().get(2)).setGenre("Action/Fantasy");
+		assertFalse(collection.getCollection().get(2).equals(collectionCopy.getCollection().get(2)));
 	}
 }

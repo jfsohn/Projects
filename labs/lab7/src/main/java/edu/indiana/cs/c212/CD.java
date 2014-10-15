@@ -10,6 +10,14 @@ public class CD extends Media{
 	private int numberOfTracks;
 	private String genre;
 	
+	/**
+	 * @param title, the title of the CD
+	 * @param artist, the recording artist for the CD
+	 * @param copyrightYear, the year the CD was copyright
+	 * @param tracks, an ArrayList<MP3> of tracks on the CD
+	 * @param publisher, the publisher of the CD
+	 * @param genre, the genre of the CD
+	 */
 	public CD(String title, String artist, int copyrightYear, ArrayList<MP3> tracks, String publisher, String genre){
 		this.title = title;
 		this.artist = artist;
@@ -22,7 +30,10 @@ public class CD extends Media{
 			this.lengthInSeconds += track.lengthInSeconds;
 		}
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see edu.indiana.cs.c212.MediaItem#makeCopy()
+	 */
 	@Override
 	public CD makeCopy() {
 		ArrayList<MP3> songsCopy = new ArrayList<MP3>();
@@ -32,29 +43,54 @@ public class CD extends Media{
 		return new CD(this.title, this.artist, this.copyrightYear, songsCopy, this.publisher, this.genre);
 	}
 	
+	/**
+	 * @return the publisher of this CD
+	 */
 	public String getPublisher(){
 		return this.publisher;
 	}
 	
+	/**
+	 * @return the genre of this CD
+	 */
 	public String getGenre(){
 		return this.genre;
 	}
+	
+	/**
+	 * Sets the genre of this CD to the given genre
+	 * 
+	 * @param genre, the genre this CD will be
+	 */
 	public void setGenre(String genre){
 		this.genre = genre;
 	}
 	
+	/**
+	 * @return the number of tracks on this CD
+	 */
 	public int getNumberOfTracks(){
 		return this.numberOfTracks;
 	}
 	
+	/**
+	 * @return the recording artist for this CD
+	 */
 	public String getArtist(){
 		return this.artist;
 	}
 	
+	/**
+	 * @return and ArrayList<MP3> of all the tracks on this CD
+	 */
 	public ArrayList<MP3> getTracks(){
 		return this.trackList;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
 	public boolean equals(Object objcd){
 		if(objcd instanceof CD){
 			CD cd = (CD) objcd;
@@ -77,6 +113,9 @@ public class CD extends Media{
 		return false;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString(){
 		return (this.title + " - " + this.artist + " (" + this.copyrightYear +")");
