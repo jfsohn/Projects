@@ -20,7 +20,7 @@ public class FrameExample {
 		// 1. Create the frame
 		JFrame frame = new JFrame("My First GUI");
 		// 2. Set what happens when the frame closes
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		// 3. Set default size of the frame. Note: this can be overridden
 		//    by frame.pack() depending on the default size of 
 		//    the JFrame and the size of any components attached to the
