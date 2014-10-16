@@ -23,6 +23,16 @@ public class CD extends Media{
 	 */
 	public CD(String title, String artist, int copyrightYear, ArrayList<MP3> tracks, String publisher, String genre){
 		//FIXME
+		this.title = title;
+		this.artist = artist;
+		this.copyrightYear = copyrightYear;
+		this.trackList  = tracks;
+		this.publisher = publisher;
+		this.genre = genre;
+		this.numberOfTracks = trackList.size();
+		for(MP3 mp3 : trackList){
+			this.lengthInSeconds += mp3.lengthInSeconds;
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -31,7 +41,13 @@ public class CD extends Media{
 	@Override
 	public CD makeCopy() {
 		//FIXME
-		return null;
+		ArrayList<MP3> newTrackList = new ArrayList<MP3>();
+		for(MP3 track : trackList){
+			MP3 mp3 = track.makeCopy();
+			newTrackList.add(mp3);
+		}
+		
+		return new CD(this.title, this.artist, this.copyrightYear, newTrackList, this.publisher, this.genre);
 	}
 	
 	/**
@@ -39,7 +55,7 @@ public class CD extends Media{
 	 */
 	public String getPublisher(){
 		//FIXME
-		return null;
+		return this.publisher;
 	}
 	
 	/**
@@ -47,7 +63,7 @@ public class CD extends Media{
 	 */
 	public String getGenre(){
 		//FIXME
-		return null;
+		return this.genre;
 	}
 	
 	/**
@@ -57,6 +73,7 @@ public class CD extends Media{
 	 */
 	public void setGenre(String genre){
 		//FIXME
+		this.genre = genre;
 	}
 	
 	/**
@@ -64,7 +81,7 @@ public class CD extends Media{
 	 */
 	public Integer getNumberOfTracks(){
 		//FIXME
-		return null;
+		return trackList.size();
 	}
 	
 	/**
@@ -72,7 +89,7 @@ public class CD extends Media{
 	 */
 	public String getArtist(){
 		//FIXME
-		return null;
+		return this.artist;
 	}
 	
 	/**
@@ -80,7 +97,7 @@ public class CD extends Media{
 	 */
 	public ArrayList<MP3> getTracks(){
 		//FIXME
-		return null;
+		return this.trackList;
 	}
 	
 	/* (non-Javadoc)
