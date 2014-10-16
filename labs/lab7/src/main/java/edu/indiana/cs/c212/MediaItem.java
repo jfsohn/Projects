@@ -4,7 +4,7 @@ public interface MediaItem {
 	/**
 	 * @return the number of seconds, as an int, it would take to play the Media
 	 */
-	int getLengthInSeconds();
+	public int getLengthInSeconds();
 	
 	/**
 	 * @return the number of minutes, as a double, it would take to play the Media
@@ -19,12 +19,12 @@ public interface MediaItem {
 	/**
 	 * @return the Title of the Media
 	 */
-	String getTitle();
+	public String getTitle();
 	
 	/**
 	 * @return the year the Media was copyrighted
 	 */
-	int getCopyrightYear();
+	public int getCopyrightYear();
 	
 	/**
 	 * makeCopy returns a copy of the Media (note, this is not the
@@ -34,5 +34,5 @@ public interface MediaItem {
 	 * 
 	 * @return a copy of the Media
 	 */
-	Media makeCopy();
+	public Media makeCopy();
 }

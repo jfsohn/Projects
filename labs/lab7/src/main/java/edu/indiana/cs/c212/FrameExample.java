@@ -75,7 +75,7 @@ public class FrameExample {
 		panel.add(button);
 		// 5. Add the JPanel to the frame
 		frame.add(panel);
-		// 6. Pack the frame so things are alligned
+		// 6. Pack the frame so things are aligned
 		frame.pack();
 		// 7. Set the frame to be visible
 		frame.setVisible(true);
