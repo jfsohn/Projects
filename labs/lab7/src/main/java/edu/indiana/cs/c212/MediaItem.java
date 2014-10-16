@@ -28,7 +28,7 @@ public interface MediaItem {
 	
 	/**
 	 * makeCopy returns a copy of the Media (note, this is not the
-	 * same thing as returning a copy of the reference to the media. If
+	 * same thing as returning a copy of a reference to the media. If
 	 * you modify the copy it should not change any information in the
 	 * original.)
 	 * 

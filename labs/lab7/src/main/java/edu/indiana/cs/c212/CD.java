@@ -11,6 +11,9 @@ public class CD extends Media{
 	private String genre;
 	
 	/**
+	 * In addition to setting all the incoming parameters, the CD
+	 * constructor also sets the lengthInSeconds of the CD.
+	 * 
 	 * @param title, the title of the CD
 	 * @param artist, the recording artist for the CD
 	 * @param copyrightYear, the year the CD was copyright

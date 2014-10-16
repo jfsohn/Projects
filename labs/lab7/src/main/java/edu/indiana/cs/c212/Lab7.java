@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Lab7 extends JPanel implements ActionListener{	
-
+	
+	private static final int BOX_SIZE = 10;
 	private String option = "Random";
 	
 	/**
@@ -52,9 +53,6 @@ public class Lab7 extends JPanel implements ActionListener{
 		//Add the three buttons to the panel in the order they were created, then return the panel
 		return panel;			
 	}
-
-
-	private static final int BOX_SIZE = 10;
 	
 	/* (non-Javadoc)
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
@@ -85,26 +83,21 @@ public class Lab7 extends JPanel implements ActionListener{
 	 */
 	
 	private void paintBox(Graphics g, int i, int j, Color color){
-		//FIXME
 		/*1. set the color of g to the given color
 		  2. call fillRect on g at the appropriate location based on i,j with the appropriate
 		     height and width.  It may be helpful to remember your Sudoku assignment to remember how
-		     to position the box you'll be coloring in and to look at the various paintGradient
+		     to position the box you'll be coloring as well as to look at the various paintGradient
 		     methods that call paintBox.
-		
 		  3. Set the color of g to Black using setColor
 		  4. draw the rectangle you filled in above by calling drawRect
 		     on g (with those same parameters you used in fillRect).
-		*/
-		g.setColor(color);
-		g.fillRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
-		g.setColor(Color.BLACK);
-		g.drawRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
+		*/			
+		//FIXME
 	}
 	
 	/**
 	 * This method will draw numboxes^2 number of boxes in the specified gradient
-	 * (In this case a gradient with no blue eg red->green)
+	 * (In this case a gradient with no blue e.g. red->green)
 	 * This will be very similar to your first assignment.
 	 * In order to generate the gradient, you should divide the color space (255)
 	 * by the number of boxes (numboxes). Then multiply the red by the row and the
@@ -138,8 +131,7 @@ public class Lab7 extends JPanel implements ActionListener{
 			for (int j = 0; j < numboxes; j++){
 				int partRed = 0;
 				int partGreen = (i)*(255/(numboxes)) ;
-				int partBlue =  (j)*(255/(numboxes));
-				
+				int partBlue =  (j)*(255/(numboxes));			
 				paintBox(g, i, j, new Color(partRed, partGreen, partBlue));
 			}
 		}
@@ -161,7 +153,6 @@ public class Lab7 extends JPanel implements ActionListener{
 				int partRed = random.nextInt(255);
 				int partGreen = random.nextInt(255);
 				int partBlue =  random.nextInt(255);
-				
 				paintBox(g, i, j, new Color(partRed, partGreen, partBlue));
 			}
 		}
@@ -193,7 +184,7 @@ public class Lab7 extends JPanel implements ActionListener{
 		frame.setSize(700, 700);
 		//Create components to add to the frame
 		JPanel buttonPanel = l7.makeButtons();
-		//Add the components to the frame and specify a layout
+		//Add the components to the frame and specify a location for the component in your layout
 		frame.add(buttonPanel, BorderLayout.PAGE_START);
 		frame.add(l7, BorderLayout.CENTER);
 		//Pack the frame

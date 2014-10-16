@@ -80,7 +80,7 @@ public class MediaCollection {
 	}
 	
 	/**
-	 * @return the total playtime of all media in the collection in hours
+	 * @return the total play time of all media in the collection in hours
 	 */
 	public double getTotalPlaytimeInHours(){
 		double playtime = 0;
@@ -90,9 +90,15 @@ public class MediaCollection {
 		return playtime;
 	}
 	
-	/*toString method, allows us to nicely display the whole collection.
-	Note: any time you call System.out.println on an Object, the println
-	method will use that Object's toString method to get the string it prints */
+	/* Note: any time you call System.out.println on an object, the println
+	method will call that object's toString method to get the string it prints.
+	When you see a string of hex come back at you when you call
+	System.out.println on an object, it's likely because that object's class has not
+	overridden Object's toString method */
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString(){
 		String output = this.name + "\n";
