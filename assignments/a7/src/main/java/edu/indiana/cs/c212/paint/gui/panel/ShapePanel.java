@@ -1,48 +1,33 @@
 package edu.indiana.cs.c212.paint.gui.panel;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Point;
+import edu.indiana.cs.c212.paint.gui.Controls;
+import edu.indiana.cs.c212.paint.gui.drawable.DrawableShape;
+import edu.indiana.cs.c212.paint.gui.drawable.impl.DrawableRectangle;
+import edu.indiana.cs.c212.paint.gui.drawable.impl.DrawableSquare;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-
-import edu.indiana.cs.c212.paint.gui.Controls;
-import edu.indiana.cs.c212.paint.gui.drawable.DrawableShape;
-import edu.indiana.cs.c212.paint.gui.drawable.impl.DrawableRectangle;
-import edu.indiana.cs.c212.paint.gui.drawable.impl.DrawableSquare;
-
 
 @SuppressWarnings("serial")
 public class ShapePanel extends JPanel {
-    public static final Color BORDER_COLOR = Controls.BORDER_COLOR;
 
     public static final String TICK_MARK = "\u2714";
-    public static final String BLANK = "   ";
-
-    private enum ShapeType {
-        NOSHAPE, LINE, RECTANGLE, SQUARE, ELLIPSE, CIRCLE;
-    }
-
-    private ShapeType shapeType;
-
-    private List<ShapeType> shapeTypeList;
-    private List<JButton> buttonList;
-    private List<JLabel> labelList;
-
+    public static final String BLANK     = "   ";
+    private ShapeType           shapeType;
+    private List<ShapeType>     shapeTypeList;
+    private List<JButton>       buttonList;
+    private List<JLabel>        labelList;
     private ShapeButtonListener shapeButtonListener;
-    private Controls controls;
+    private Controls            controls;
 
     public ShapePanel(Controls controls) {
         this.controls = controls;
@@ -59,7 +44,7 @@ public class ShapePanel extends JPanel {
 
     public DrawableShape getBrushShape(Point point) {
         return null;
-       // return new DrawableCircle(point, controls.getPenWidth());
+        // return new DrawableCircle(point, controls.getPenWidth()); //FIXME
         // here's an interesting alternative: square brushes!
         // return new DrawableSquare(point, 2 * controls.getPenWidth());
     }
@@ -68,26 +53,26 @@ public class ShapePanel extends JPanel {
         DrawableShape shape = null;
 
         switch (shapeType) {
-        case LINE: {
-            // shape = new DrawableLine(from, to); //FIXME
-            break;
-        }
-        case RECTANGLE: {
-            shape = new DrawableRectangle(from, to);
-            break;
-        }
-        case SQUARE: {
-            shape = new DrawableSquare(from, to);
-            break;
-        }
-        case ELLIPSE: {
-           // shape = new DrawableEllipse(from, to);  //FIXME
-            break;
-        }
-        case CIRCLE: {
-            //shape = new DrawableCircle(from, to);  //FIXME
-            break;
-        }
+            case LINE: {
+                // shape = new DrawableLine(from, to); //FIXME
+                break;
+            }
+            case RECTANGLE: {
+                shape = new DrawableRectangle(from, to);
+                break;
+            }
+            case SQUARE: {
+                shape = new DrawableSquare(from, to);
+                break;
+            }
+            case ELLIPSE: {
+                // shape = new DrawableEllipse(from, to);  //FIXME
+                break;
+            }
+            case CIRCLE: {
+                //shape = new DrawableCircle(from, to);  //FIXME
+                break;
+            }
         }
 
         return shape;
@@ -107,9 +92,9 @@ public class ShapePanel extends JPanel {
 
     private JPanel addButtonsAndLabels(JPanel shapeBox) {
         shapeButtonListener = new ShapeButtonListener();
-        shapeTypeList = new ArrayList<ShapeType>();
-        buttonList = new ArrayList<JButton>();
-        labelList = new ArrayList<JLabel>();
+        shapeTypeList = new ArrayList<>();
+        buttonList = new ArrayList<>();
+        labelList = new ArrayList<>();
         for (ShapeType shapeType : ShapeType.values()) {
             JButton button = new JButton(shapeType.name());
             JLabel label = new JLabel(BLANK);
@@ -136,6 +121,10 @@ public class ShapePanel extends JPanel {
         panel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         return panel;
+    }
+
+    private enum ShapeType {
+        NOSHAPE, LINE, RECTANGLE, SQUARE, ELLIPSE, CIRCLE
     }
 
     private class ShapeButtonListener implements ActionListener {

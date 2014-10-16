@@ -1,40 +1,28 @@
 package edu.indiana.cs.c212.paint.gui.panel;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.AlphaComposite;
-import java.awt.BorderLayout;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JSlider;
-import javax.swing.BoxLayout;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
 import edu.indiana.cs.c212.paint.gui.Controls;
 
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.text.DecimalFormat;
 
 @SuppressWarnings("serial")
 public class OpacityPanel extends JPanel {
-    public static final Color BORDER_COLOR = Controls.BORDER_COLOR;
-    public static final Dimension SWATCH_SIZE = Controls.SWATCH_SIZE;
+    public static final Color     BORDER_COLOR = Controls.BORDER_COLOR;
+    public static final Dimension SWATCH_SIZE  = Controls.SWATCH_SIZE;
 
-    public static final int MIN_OPACITY_VALUE = 0; // out of 100
-    public static final int MAX_OPACITY_VALUE = 100; // out of 100
-    public static final int START_OPACITY_VALUE = 100; // out of 100
-    public static final float DEFAULT_OPACITY = 1.0f; // completely opaque
+    public static final int   MIN_OPACITY_VALUE   = 0; // out of 100
+    public static final int   MAX_OPACITY_VALUE   = 100; // out of 100
+    public static final int   START_OPACITY_VALUE = 100; // out of 100
+    public static final float DEFAULT_OPACITY     = 1.0f; // completely opaque
 
     private Controls controls;
-    private float opacity;
+    private float    opacity;
     private DecimalFormat twoDigitAccuracy = new DecimalFormat("0.00");
 
     public OpacityPanel(Controls controls) {
@@ -119,7 +107,7 @@ public class OpacityPanel extends JPanel {
 
     private class WatchSlider implements ChangeListener {
         private JSlider slider;
-        private JLabel label;
+        private JLabel  label;
 
         public WatchSlider(JSlider slider, JLabel label) {
             this.slider = slider;

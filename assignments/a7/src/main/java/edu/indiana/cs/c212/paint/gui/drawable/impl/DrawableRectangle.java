@@ -1,22 +1,14 @@
 package edu.indiana.cs.c212.paint.gui.drawable.impl;
 
-import java.awt.Graphics2D;
+import edu.indiana.cs.c212.paint.gui.drawable.DrawableShape;
+
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-import edu.indiana.cs.c212.paint.gui.drawable.DrawableShape;
-
 public class DrawableRectangle extends DrawableShape {
     private Rectangle2D rectangle;
-    private double width, height;
-
-    public DrawableRectangle() {
-        super();
-
-        width = 0;
-        height = 0;
-        rectangle = null;
-    }
+    private double      width, height;
 
     public DrawableRectangle(Point2D from, Point2D to) {
         resetBounds(from, to);

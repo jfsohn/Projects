@@ -1,28 +1,20 @@
 package edu.indiana.cs.c212.paint.gui;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
 import edu.indiana.cs.c212.paint.gui.drawable.DrawableShape;
 import edu.indiana.cs.c212.paint.gui.panel.ColorPanel;
 import edu.indiana.cs.c212.paint.gui.panel.OpacityPanel;
 import edu.indiana.cs.c212.paint.gui.panel.PenWidthPanel;
 import edu.indiana.cs.c212.paint.gui.panel.ShapePanel;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * This class aggregates all of the controller panels.
- * 
+ *
  * @author jrread
- * 
  */
 @SuppressWarnings("serial")
 public class Controls extends JPanel {
@@ -31,20 +23,19 @@ public class Controls extends JPanel {
     // so that Swing won't shift its layout if 'More Controls' is clicked
     // would be nice to fix...
 
-    public static final Color DEFAULT_PEN_COLOR = Color.BLACK;
+    public static final Color DEFAULT_PEN_COLOR  = Color.BLACK;
+    public static final Color BORDER_COLOR       = DEFAULT_PEN_COLOR;
     public static final Color DEFAULT_FILL_COLOR = Color.WHITE;
-    public static final Color BORDER_COLOR = DEFAULT_PEN_COLOR;
-
-    public static final int SWATCH_INSET = 3; // pixels
-    public static final int SWATCH_WIDTH = PenWidthPanel.MAX_PEN_WIDTH
+    public static final int       SWATCH_INSET = 3; // pixels
+    public static final int       SWATCH_WIDTH = PenWidthPanel.MAX_PEN_WIDTH
             + SWATCH_INSET * 2;
-    public static final Dimension SWATCH_SIZE = new Dimension(SWATCH_WIDTH,
+    public static final Dimension SWATCH_SIZE  = new Dimension(SWATCH_WIDTH,
             SWATCH_WIDTH);
 
-    private ShapePanel shapePanel;
-    private ColorPanel colorPanel;
+    private ShapePanel    shapePanel;
+    private ColorPanel    colorPanel;
     private PenWidthPanel penWidthPanel;
-    private OpacityPanel opacityPanel;
+    private OpacityPanel  opacityPanel;
 
     public Controls() {
         JPanel controlsBox = makeControlsBox();

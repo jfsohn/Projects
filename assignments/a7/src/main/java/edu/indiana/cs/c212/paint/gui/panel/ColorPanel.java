@@ -1,23 +1,16 @@
 package edu.indiana.cs.c212.paint.gui.panel;
 
-import java.awt.Color;
-import java.awt.Component;
+import edu.indiana.cs.c212.paint.gui.Controls;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JColorChooser;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-
-import edu.indiana.cs.c212.paint.gui.Controls;
 
 @SuppressWarnings("serial")
 /**
@@ -29,7 +22,7 @@ public class ColorPanel extends JPanel {
     public static final Color BORDER_COLOR = Controls.BORDER_COLOR;
 
     private Controls controls;
-    private Color penColor, fillColor;
+    private Color    penColor, fillColor;
     private Map<String, JLabel> map;
 
     public ColorPanel(Controls controls) {
@@ -43,7 +36,7 @@ public class ColorPanel extends JPanel {
 
     /**
      * Returns the current color of the pen.
-     * 
+     *
      * @return Color object representing the pen's current color.
      */
     public Color getPenColor() {
@@ -52,7 +45,7 @@ public class ColorPanel extends JPanel {
 
     /**
      * Returns the current fill color.
-     * 
+     *
      * @return The Color object representing the current fill color.
      */
     public Color getFillColor() {
@@ -61,9 +54,8 @@ public class ColorPanel extends JPanel {
 
     /**
      * Makes menu for color selection.
-     * 
-     * @param string
-     *            The name of the color.
+     *
+     * @param string The name of the color.
      * @return A JPanel with the color selection button.
      */
     private JPanel makeColorBox(String string) {
@@ -78,9 +70,9 @@ public class ColorPanel extends JPanel {
 
         String EMPTY = "   ";
         border = BorderFactory.createLineBorder(BORDER_COLOR, 1);
-        String[] buttonText = { "Pen Color", "Fill Color" };
-        Color[] labelColor = { penColor, fillColor };
-        map = new HashMap<String, JLabel>();
+        String[] buttonText = {"Pen Color", "Fill Color"};
+        Color[] labelColor = {penColor, fillColor};
+        map = new HashMap<>();
         WatchColorButtons watcher = new WatchColorButtons();
 
         for (int i = 0; i < buttonText.length; i++) {

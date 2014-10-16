@@ -1,20 +1,14 @@
 package edu.indiana.cs.c212.paint.gui.drawable;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.RenderingHints;
+import edu.indiana.cs.c212.paint.gui.Controls;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JPanel;
-
-import edu.indiana.cs.c212.paint.gui.Controls;
 
 @SuppressWarnings("serial")
 public class Easel extends JPanel {
@@ -22,14 +16,14 @@ public class Easel extends JPanel {
 
     public static final Dimension PREFERRED_SIZE = new Dimension(400, 400);
 
-    private Controls controls;
+    private Controls            controls;
     private List<DrawableShape> savedShapes;
-    private DrawableShape sketchShape;
-    private Point sketchStart, sketchEnd;
+    private DrawableShape       sketchShape;
+    private Point               sketchStart, sketchEnd;
 
     public Easel(Controls controls) {
         this.controls = controls;
-        savedShapes = new ArrayList<DrawableShape>();
+        savedShapes = new ArrayList<>();
         sketchShape = null;
 
         addMouseListener(new ActWhenMouseChangesState());
