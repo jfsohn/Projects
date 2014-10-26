@@ -16,14 +16,14 @@ Think about the goal zones as nodes (Tiles), one on each edge of the board, that
 
 The SimpleGameBoard class specifies the way that the Rules are able to access the Tiles at a specified coordinate. It also returns a Set of Tiles that represent the neighbors of a given Tile. Another method that is inherited from the Board interface is the makeMove method. This method sets the color of the Tile represented by the given Move to the color of the given player. It then marks that changes have been made via the Observable pattern, and notifies all observers that changes have been made.
 
-A Set in java is a collection that contains no duplicate elements.  
-For more information on the Set interface see: http://docs.oracle.com/javase/7/docs/api/java/util/Set.html
-
+###Set, Observer, and Observable
+A Set in Java is an unordered collection that contains no duplicate elements.  
+Link to the Set interface: http://docs.oracle.com/javase/7/docs/api/java/util/Set.html
 And for a class that implements Set see HashSet: http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html 
 
 Link to the Observable Interface: http://docs.oracle.com/javase/7/docs/api/java/util/Observable.html
 
-Keep in mind that an Observer work similarly to a button that gets pressed. When an action happens, an Observable notifies all of its observers that an action happened.
+Keep in mind that an Observer works similarly to a button that gets pressed. When an action happens, an Observable notifies all of its observers that an action happened.
 
 Here are the rules surrounding Observers and Observables:
 
