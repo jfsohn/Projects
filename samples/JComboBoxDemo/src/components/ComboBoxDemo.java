@@ -27,7 +27,7 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
 package components;
 
@@ -44,13 +44,13 @@ import javax.swing.*;
  *   images/Pig.gif
  */
 public class ComboBoxDemo extends JPanel
-                          implements ActionListener {
+        implements ActionListener {
     JLabel picture;
 
     public ComboBoxDemo() {
         super(new BorderLayout());
 
-        String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+        String[] petStrings = {"Bird", "Cat", "Dog", "Rabbit", "Pig"};
 
         //Create the combo box, select the item at index 4.
         //Indices start at 0, so 4 specifies the pig.
@@ -63,23 +63,25 @@ public class ComboBoxDemo extends JPanel
         picture.setFont(picture.getFont().deriveFont(Font.ITALIC));
         picture.setHorizontalAlignment(JLabel.CENTER);
         updateLabel(petStrings[petList.getSelectedIndex()]);
-        picture.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
+        picture.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
         //The preferred size is hard-coded to be the width of the
         //widest image and the height of the tallest image + the border.
         //A real program would compute this.
-        picture.setPreferredSize(new Dimension(177, 122+10));
+        picture.setPreferredSize(new Dimension(177, 122 + 10));
 
         //Lay out the demo.
         add(petList, BorderLayout.PAGE_START);
         add(picture, BorderLayout.PAGE_END);
-        setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
     }
 
-    /** Listens to the combo box. */
+    /**
+     * Listens to the combo box.
+     */
     public void actionPerformed(ActionEvent e) {
-        JComboBox cb = (JComboBox)e.getSource();
-        String petName = (String)cb.getSelectedItem();
+        JComboBox cb = (JComboBox) e.getSource();
+        String petName = (String) cb.getSelectedItem();
         updateLabel(petName);
     }
 
@@ -94,7 +96,9 @@ public class ComboBoxDemo extends JPanel
         }
     }
 
-    /** Returns an ImageIcon, or null if the path was invalid. */
+    /**
+     * Returns an ImageIcon, or null if the path was invalid.
+     */
     protected static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = ComboBoxDemo.class.getResource(path);
         if (imgURL != null) {
@@ -113,7 +117,7 @@ public class ComboBoxDemo extends JPanel
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("ComboBoxDemo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
         JComponent newContentPane = new ComboBoxDemo();

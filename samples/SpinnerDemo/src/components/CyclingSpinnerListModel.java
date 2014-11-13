@@ -27,7 +27,7 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
 package components;
 
@@ -42,7 +42,7 @@ import javax.swing.SpinnerListModel;
  * lets you optionally associate a spinner model that's
  * linked to this one, so that when a cycle occurs the
  * linked spinner model is updated.
-
+ * <p/>
  * The SpinnerDemos use the CyclingSpinnerListModel for
  * a month spinner that (in SpinnerDemo3) is tied to the
  * year spinner, so that -- for example -- when the month

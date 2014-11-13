@@ -27,7 +27,7 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
 package components;
 
@@ -39,8 +39,7 @@ package components;
  */
 
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Container;
+import java.awt.*;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -51,22 +50,22 @@ public class SpinnerDemo extends JPanel {
         String[] labels = {"Month: ", "Year: ", "Another Date: "};
         int numPairs = labels.length;
         Calendar calendar = Calendar.getInstance();
-        JFormattedTextField ftf = null;
+        JFormattedTextField ftf;
 
         //Add the first label-spinner pair.
         String[] monthStrings = getMonthStrings(); //get month names
-        SpinnerListModel monthModel = null;
+        SpinnerListModel monthModel;
         if (cycleMonths) { //use custom model
             monthModel = new CyclingSpinnerListModel(monthStrings);
         } else { //use standard model
             monthModel = new SpinnerListModel(monthStrings);
         }
         JSpinner spinner = addLabeledSpinner(this,
-                                             labels[0],
-                                             monthModel);
+                labels[0],
+                monthModel);
         //Tweak the spinner's formatted text field.
         ftf = getTextField(spinner);
-        if (ftf != null ) {
+        if (ftf != null) {
             ftf.setColumns(8); //specify more width than we need
             ftf.setHorizontalAlignment(JTextField.RIGHT);
         }
@@ -75,12 +74,12 @@ public class SpinnerDemo extends JPanel {
         //Add second label-spinner pair.
         int currentYear = calendar.get(Calendar.YEAR);
         SpinnerModel yearModel = new SpinnerNumberModel(currentYear, //initial value
-                                       currentYear - 100, //min
-                                       currentYear + 100, //max
-                                       1);                //step
+                currentYear - 100, //min
+                currentYear + 100, //max
+                1);                //step
         //If we're cycling, hook this model up to the month model.
         if (monthModel instanceof CyclingSpinnerListModel) {
-            ((CyclingSpinnerListModel)monthModel).setLinkedModel(yearModel);
+            ((CyclingSpinnerListModel) monthModel).setLinkedModel(yearModel);
         }
         spinner = addLabeledSpinner(this, labels[1], yearModel);
         //Make the year be formatted without a thousands separator.
@@ -94,17 +93,17 @@ public class SpinnerDemo extends JPanel {
         calendar.add(Calendar.YEAR, 200);
         Date latestDate = calendar.getTime();
         SpinnerModel dateModel = new SpinnerDateModel(initDate,
-                                     earliestDate,
-                                     latestDate,
-                                     Calendar.YEAR);//ignored for user input
+                earliestDate,
+                latestDate,
+                Calendar.YEAR);//ignored for user input
         spinner = addLabeledSpinner(this, labels[2], dateModel);
         spinner.setEditor(new JSpinner.DateEditor(spinner, "MM/yyyy"));
 
         //Lay out the panel.
         SpringUtilities.makeCompactGrid(this,
-                                        numPairs, 2, //rows, cols
-                                        10, 10,        //initX, initY
-                                        6, 10);       //xPad, yPad
+                numPairs, 2, //rows, cols
+                10, 10,        //initX, initY
+                6, 10);       //xPad, yPad
     }
 
     /**
@@ -114,11 +113,11 @@ public class SpinnerDemo extends JPanel {
     public JFormattedTextField getTextField(JSpinner spinner) {
         JComponent editor = spinner.getEditor();
         if (editor instanceof JSpinner.DefaultEditor) {
-            return ((JSpinner.DefaultEditor)editor).getTextField();
+            return ((JSpinner.DefaultEditor) editor).getTextField();
         } else {
             System.err.println("Unexpected editor type: "
-                               + spinner.getEditor().getClass()
-                               + " isn't a descendant of DefaultEditor");
+                    + spinner.getEditor().getClass()
+                    + " isn't a descendant of DefaultEditor");
             return null;
         }
     }
@@ -132,10 +131,10 @@ public class SpinnerDemo extends JPanel {
         int lastIndex = months.length - 1;
 
         if (months[lastIndex] == null
-           || months[lastIndex].length() <= 0) { //last item empty
+                || months[lastIndex].length() <= 0) { //last item empty
             String[] monthStrings = new String[lastIndex];
             System.arraycopy(months, 0,
-                             monthStrings, 0, lastIndex);
+                    monthStrings, 0, lastIndex);
             return monthStrings;
         } else { //last item not empty
             return months;
@@ -163,7 +162,7 @@ public class SpinnerDemo extends JPanel {
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("SpinnerDemo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //Add content to the window.
         frame.add(new SpinnerDemo(false));
@@ -179,8 +178,8 @@ public class SpinnerDemo extends JPanel {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 //Turn off metal's use of bold fonts
-	        UIManager.put("swing.boldMetal", Boolean.FALSE);
-		createAndShowGUI();
+                UIManager.put("swing.boldMetal", false);
+                createAndShowGUI();
             }
         });
     }
