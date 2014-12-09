@@ -1,6 +1,7 @@
 package edu.indiana.cs.c212.gameMechanics;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -29,6 +30,8 @@ public class MoveTest {
 	public void testEquals() {
 		Move m = new Move(1, 2);
 		Move m2 = new Move(1, 2);
-		assertEquals("a move with the same X and Y should be equals", m, m2);
+		System.out.println("x:" + m.getX() + " & y: " + m.getY());
+		System.out.println("x:" + m2.getX() + " & y: " + m2.getY());
+		assertEquals("", m, m2);
 	}
 }

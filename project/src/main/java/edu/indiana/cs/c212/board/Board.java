@@ -42,6 +42,7 @@ import edu.indiana.cs.c212.gameMechanics.PlayerColor;
  *             </pre>
  */
 public interface Board {
+	
 
 	/**
 	 * Returns the number of tiles along one side of the board. All boards

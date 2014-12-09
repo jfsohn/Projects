@@ -9,6 +9,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.Queue;
+import java.util.Set;
+import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +31,7 @@ public class StandardRulesTest {
 	public void setUp() throws Exception {
 		board = new SimpleGameBoard(4);
 	}
-
+/*
 	@Test(timeout = 1000)
 	public void testGetPlayers() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
@@ -42,8 +44,8 @@ public class StandardRulesTest {
 	public void testStandardRules() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
 		assertNotNull("Failure, rules not initialized", rules);
-	}
-
+	}*/
+	/*
 	@Test(timeout = 1000)
 	public void testStandardRulesPlayerPlayer() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(
@@ -68,7 +70,17 @@ public class StandardRulesTest {
 		}
 	}
 	
+	@Test(timeout = 1000)
+	public void testIsSetCrawlable(){
+		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
+		Set<Tile> testSet = new LinkedList<Tile>();
+		Board board = rules.getBoard();
+		testSet.add(board.getTileAt(0, 0));
+		
+		assertFalse(rules.isTilesetCrawlable(testSet));	
+	}
 	
+	*/
 	@Test(timeout = 1000)
 	public void testAreTilesConnectedBlue() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
@@ -85,7 +97,7 @@ public class StandardRulesTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testAreTilesConnectedBlue2() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
@@ -95,14 +107,18 @@ public class StandardRulesTest {
 			rules.makeMove(new Move(1,0));
 			rules.makeMove(new Move(2,0));
 			rules.makeMove(new Move(3,0));
-			
+			if (rules.getPlayers().peek().equals(PlayerColor.RED)){
+				System.out.println("Current player is red");
+			} else {
+				System.out.println("Current player is blue");
+			}
 			assertTrue(StandardRules.areTilesConnected(board, board.getTileAt(-1, 0), board.getTileAt(4, 0), PlayerColor.BLUE));
 		} catch (InvalidMoveException e) {
 			fail();
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testAreTilesConnectedBlue3() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
@@ -136,7 +152,7 @@ public class StandardRulesTest {
 			e.printStackTrace();
 		}
 	}
-	
+	/*
 	@Test(timeout = 1000)
 	public void testCheckForWinsNone() {
 		StandardRules rules = new StandardRules(board, new SimpleRandom(PlayerColor.RED), new SimpleRandom(PlayerColor.BLUE));
@@ -193,5 +209,5 @@ public class StandardRulesTest {
 		Player nextPlayer = rules.getNextPlayer();
 		assertNotSame("Players are the same", currentPlayer, nextPlayer);
 	}
-
+	*/
 }

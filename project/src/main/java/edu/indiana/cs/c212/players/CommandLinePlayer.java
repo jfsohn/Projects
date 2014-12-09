@@ -8,7 +8,7 @@ import edu.indiana.cs.c212.gameMechanics.Move;
 import edu.indiana.cs.c212.gameMechanics.PlayerColor;
 import edu.indiana.cs.c212.view.textual.CommandLineView;
 
-public class CommandLinePlayer extends AbstractPlayer {
+public class CommandLinePlayer extends AbstractPlayer{
 	public CommandLinePlayer(PlayerColor player) {
 		super(player);
 		this.scanner = new Scanner(System.in);
@@ -28,7 +28,7 @@ public class CommandLinePlayer extends AbstractPlayer {
 	 */
 	@Override
 	public Move getMove(Board board, List<Move> legalMoves) {
-		System.out.print(CommandLineView.boardToString(board));
+		//System.out.print(CommandLineView.boardToString(board));
 		System.out.print(this.color + " to move: ");
 
 		int x = 0, y = 0;
@@ -48,4 +48,5 @@ public class CommandLinePlayer extends AbstractPlayer {
 	public String getName() {
 		return "Command Line Player";
 	}
+	
 }

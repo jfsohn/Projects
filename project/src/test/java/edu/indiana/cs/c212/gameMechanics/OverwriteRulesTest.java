@@ -33,7 +33,9 @@ public class OverwriteRulesTest {
 
     @Test(timeout = 1000)
     public void testIsLegalMove2() {
+    	System.out.println(rules.getPlayers().peek().getColor().toString());
         OverwriteMove m = new OverwriteMove(1, 2);
+        System.out.println(board.getTileAt(1, 2).getColor().toString());
         assertFalse(rules.isLegalMove(m));
     }
 
@@ -70,9 +72,11 @@ public class OverwriteRulesTest {
                 testMoves.add(new Move(i, j));
             }
         }
+        
+        
         testMoves.remove(0);
         testMoves.add(new OverwriteMove(0, 0));
-
+        //System.out.println(testMoves.get(15).toString());
         ArrayList<Move> actual = rules.getLegalMoves(rules.getPlayers().peek());
 
         assertNotNull(actual);
@@ -131,3 +135,4 @@ public class OverwriteRulesTest {
 
     }
 }
+

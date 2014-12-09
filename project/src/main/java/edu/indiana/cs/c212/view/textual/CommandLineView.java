@@ -12,14 +12,16 @@ public class CommandLineView {
 	 * Runs the game from the command line
 	 * 
 	 * @param args
-	 */
+	*/
 	public static GameRunner setup(Scanner scanner) {		
 		for (int i = 0; i < GameRunner.getPlayersList().size(); i++) {
 			System.out.println("(" + i + ") " + GameRunner.getPlayersList().get(i));
 		}
-		String red = "edu.indiana.cs.c212.players.SimpleRandom";
+		String red = "";//;"edu.indiana.cs.c212.players.CommandLinePlayer";
 		String blue = "edu.indiana.cs.c212.players.SimpleRandom";
 		int boardSize = 7;
+		
+		System.out.println(GameRunner.getPlayersList().get(0));
 
 		System.out.println("Choose the red player (input a number): ");
 		red = GameRunner.getPlayersList().get(scanner.nextInt());
@@ -32,7 +34,8 @@ public class CommandLineView {
 		for (int i = 0; i < GameRunner.getRuleSets().size(); i++) {
 			System.out.println("(" + i + ") " + GameRunner.getRuleSets().get(i));
 		}
-		String ruleSet = scanner.next();		
+		String ruleSet = scanner.next();	
+		
 		GameRunner game = new GameRunner(boardSize, red, blue, ruleSet);
 		game.run();
 		
@@ -156,6 +159,7 @@ public class CommandLineView {
 			StringBuilder sb = wholeboard.get(yOffset);
 			String coord = "(" +  x + "," + y + ")";
 			sb.replace(xOffset + 1, xOffset + coord.length() + 1, coord);					
-	}
+	}	
+	 
 
 }
