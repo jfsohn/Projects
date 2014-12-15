@@ -3,4 +3,6 @@
 your_username :
 partner_username  :
 your_share :
-partner_share :
+partner_1_share :
+#If you are in a group of 3 uncomment the line below (by removing the '#' character) and fill in that info
+#partner_2_share :
