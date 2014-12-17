@@ -51,7 +51,9 @@ public class SimpleGameBoard extends AbstractGameBoard{
 
 	//sets the Tile at m.getPoint() to color. makeMove in StandardRules should call this nmethod and throw the InvalidMoveException if necessary`
 	public void makeMove(Move m, PlayerColor color){
-			grid[m.getX()][m.getY()].setColor(color);			
+			grid[m.getX()][m.getY()].setColor(color);
+			setChanged();
+			notifyObservers(grid);
 	}
 	
 	//returns True if the tile can be used in a move and False if the tile is off the board or a goal tile	
@@ -61,6 +63,8 @@ public class SimpleGameBoard extends AbstractGameBoard{
 
 	//returns the tile at the given index of grid. Should handle goal tiles specially	
 	public Tile getTileAt(int x, int y){
+		setChanged(); //invokes the update method of boardpanel
+		notifyObservers(grid);
 		if ( x > size + 1 || y > size + 1 || x < -1 || y < -1) {
 			return null;
 		} else  if (x == -1){ //if the coordinates point to the red goal tile

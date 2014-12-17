@@ -20,19 +20,23 @@ public class GameRunner extends Observable implements Runnable{
 	private Player bluePlayer;
 	
 	public GameRunner(int boardSize, String red, String blue, String ruleSet){
+	    System.out.println(ruleSet);
 		this.red = red;
 		this.blue = blue;
 		this.ruleSet = ruleSet;
 		this.redPlayer = createPlayer(red, PlayerColor.RED);
 		this.bluePlayer = createPlayer(blue, PlayerColor.BLUE);
 		this.board = new SimpleGameBoard(boardSize);
+		
 		this.rules = createRules(ruleSet, board, redPlayer, bluePlayer);
 	}
 	
 	public static List<String> getPlayersList(){
-		List<String> pList = new ArrayList<String>();
+		List<String> pList = new ArrayList<String>();		
+		pList.add("edu.indiana.cs.c212.players.PointAndClickPlayer");
 		pList.add("edu.indiana.cs.c212.players.CommandLinePlayer");
 		pList.add("edu.indiana.cs.c212.players.SimpleRandom");
+		pList.add("edu.indiana.cs.c212.players.BasicTrailsPlayer");
 		return pList;
 	}
 	
@@ -47,6 +51,8 @@ public class GameRunner extends Observable implements Runnable{
 	public static List<String> getRuleSets(){
 		List<String> l = new ArrayList<String>();
 		l.add("edu.indiana.cs.c212.gameMechanics.StandardRules");
+		l.add("edu.indiana.cs.c212.gameMechanics.OverwriteRules");
+		l.add("edu.indiana.cs.c212.gameMechanics.RandomPlayerMove");
 		return l;
 	}
 	
@@ -54,16 +60,24 @@ public class GameRunner extends Observable implements Runnable{
 		Rules r;
 		if (ruleset.contains("Overwrite")){
 			r = new OverwriteRules(board, red, blue);
+		} else if (ruleset.contains("Random")) {
+			return new RandomPlayerMove(board, red, blue);
 		} else {
 			r = new StandardRules(board, red, blue);
 		}
 		return r;
 	}
 	
+	
+	
 	protected static Player createPlayer(String playerType, PlayerColor color){
 		Player p;
 		if (playerType.contains("Random")){
 			p = new SimpleRandom(color);
+		} else if (playerType.contains("Basic")) {
+			p = new BasicTrailsPlayer(color);
+		}	else if (playerType.contains("Point")) {
+				p = new PointAndClickPlayer(color);
 		} else {
 			p = new CommandLinePlayer(color);
 		}
@@ -71,13 +85,13 @@ public class GameRunner extends Observable implements Runnable{
 	}
 	
 	public void run(){
-		System.out.println(board.getSize());
 		while(rules.checkForWins() == null){
+			rules.nextTurn();
+			setChanged();
 			notifyObservers(rules.getNextPlayer()); //updates the observables
-			System.out.print(CommandLineView.boardToString(board));
 			ArrayList<Move> legalMoves = new ArrayList<Move>();
 			legalMoves = rules.getLegalMoves(rules.getPlayers().peek());
-			Move m = rules.getNextPlayer().getMove(board, legalMoves);
+			Move m = rules.getPlayers().peek().getMove(board, legalMoves);
 			if (rules.isLegalMove(m)){
 				try {
 					rules.makeMove(m);
@@ -85,10 +99,8 @@ public class GameRunner extends Observable implements Runnable{
 					System.out.println("e");
 				}
 			}
-			rules.nextTurn();
-			
 		}
-		System.out.println("Winner!");
+		System.out.println(rules.getNextPlayer().getColor() + " " + rules.getNextPlayer().getName() + " wins!");
 	}
 	
 	public void stopGame(){
@@ -97,6 +109,7 @@ public class GameRunner extends Observable implements Runnable{
 	
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		GraphicalBoardView.setup();
+		Thread t = new Thread(GraphicalBoardView.setup());
+		t.start();
 	}
 }

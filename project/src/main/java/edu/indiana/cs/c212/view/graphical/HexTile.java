@@ -20,19 +20,20 @@ public class HexTile extends JButton{
 	private Tile tile;
 	private int alpha;
 	private int beta;
-	private Point2D origin; //for using the Point2D distance method
 	private Polygon shape;
-	final int yOffset = 300;
-	final int xOffset = 80;
+	int yOffset = 50;
+	int xOffset = 50;
 	
-	public HexTile(int x, int y, int radius, Tile tile){
+	public HexTile(int xVal, int yVal, int radius, Tile tile){
 		this.radius = radius;
 		this.tile = tile;
-		this.origin = new Point2D.Double(x, y);
 		this.beta = ((int) ((int) Math.round(Math.cos(Math.toRadians(30)) * radius)));
 		this.alpha = ((int) radius/2);
-		this.x = xOffset + (x * radius * 2) + (beta * y) - (((radius - beta) * 2) * x);
-		this.y = yOffset + (y * radius * 2) - (alpha * y);
+		this.x = xOffset + (xVal * radius * 2) + (beta * yVal) - (((radius - beta) * 2) * xVal);
+		this.y = yOffset + (yVal * radius * 2) - (alpha * yVal);
+		if (tile.getX() == 7 && (tile.getY() == 0 || tile.getY() == 7)){
+			System.out.println("(" + x + ", " + y + ")");
+		}
 		shape = new Polygon();
 		setPoints();
 	}
@@ -71,11 +72,10 @@ public class HexTile extends JButton{
 		return shape.contains(p.x, p.y);
 	}
 	
+	@Override
 	protected void processMouseEvent(MouseEvent e){
 		if (contains(e.getX(), e.getY()) && e.getButton() == 1){
 			super.processMouseEvent(e);
-			System.out.println("clicked: " + tile.toString());
-			tile.setColor(PlayerColor.RED);
 		}
 	}
 	
@@ -88,10 +88,7 @@ public class HexTile extends JButton{
 		}
 		shape.addPoint(shape.xpoints[0], shape.ypoints[0]);
 	}
-	
-	public Point2D getOriginOfRightHex(){
-		return new Point2D.Double(x + beta, y - alpha);
-	}
+
 	
 	public void setRadius(int newRadius){
 		this.radius = newRadius;
@@ -102,7 +99,6 @@ public class HexTile extends JButton{
 	
 	@Override
 	public void paint(Graphics g){
-		//super.paint(g);
 		g.setColor(Color.BLACK);
 		g.drawPolygon(shape);
 		if (tile.getColor().equals(PlayerColor.RED)){
@@ -113,10 +109,5 @@ public class HexTile extends JButton{
 			g.setColor(Color.GRAY);
 		}
 		g.fillPolygon(shape);
-	}
-	
-	@Override
-	public void paintComponent(Graphics g){
-		paint(g);
 	}
 }

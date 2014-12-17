@@ -18,26 +18,31 @@ public class TurnViewer extends JPanel implements Observer{
 	public TurnViewer(PlayerColor pColor, GameRunner game){
 		this.pColor = pColor;
 		this.game = game;
+		
+		
+		game.addObserver(this); //add the TurnViewer to the observable array of observers
+		//setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		JLabel turnLabel = new JLabel("Current turn: ");
 		this.add(turnLabel);
-		game.addObserver(this); //add the TurnViewer to the observable array of observers
+		
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
+		super.paintComponent(g);
 		if (isRed){
 			g.setColor(java.awt.Color.RED);
-			g.fillOval(10, 100, 50, 50);
+			g.fillOval(25, 25, 50, 50);
 		} else {
 			g.setColor(Color.BLUE);
-			g.fillOval(10, 100, 50, 50);
+			g.fillOval(25, 25, 50, 50);
 		}
 	}
+	
 	//this is called when the observable's notifyObservers method is called
 	public void update(Observable o, Object arg){
-		if (arg.getClass().toString().equals("Player")){
-			Player pC = (Player) arg;
-			isRed = pC.getColor().equals(PlayerColor.RED);
-		}
+		Player pC = (Player) arg;
+		isRed = pC.getColor().equals(PlayerColor.RED);
+		repaint();
 	}
 }

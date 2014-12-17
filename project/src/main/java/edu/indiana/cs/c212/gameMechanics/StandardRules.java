@@ -14,8 +14,9 @@ import edu.indiana.cs.c212.players.Player;
 
 public class StandardRules implements Rules {
 	private Board board;
-	private Player red;
-	private Player blue;
+	protected Player red;
+	protected Player blue;
+	private int moveCount;
 	
 	Queue<Player> playersQ = new LinkedList<Player>(); //this contains the Player objects
 	
@@ -30,6 +31,10 @@ public class StandardRules implements Rules {
 	@Override
 	public Queue<Player> getPlayers() {
 		return playersQ;
+	}
+	
+	public int getMoveCount(){
+		return moveCount;
 	}
 
 	public Board getBoard() { //this getter isn't necessary except to test setIsCrawlable
@@ -70,17 +75,14 @@ public class StandardRules implements Rules {
 
 	@Override
 	public Player getNextPlayer() {
-		if (playersQ.peek().equals(PlayerColor.BLUE)){
-			return red;
-		} else {
-			return blue;
-		}
+		return playersQ.peek();
 	}
 
 	@Override
 	public void makeMove(Move m) throws InvalidMoveException {
 		if (isLegalMove(m)){
 			board.makeMove(m, playersQ.peek().getColor());
+			moveCount++;
 		} else {
 			throw new InvalidMoveException("Not valid", m, 0);
 		}

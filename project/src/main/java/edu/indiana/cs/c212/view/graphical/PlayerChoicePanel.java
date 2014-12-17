@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlayerChoicePanel extends JPanel{
-	private String[] playerTypes = {"CommandLine" , "SimpleRandom" , "Point and Click"};
+	private String[] playerTypes = {"Point and Click", "CommandLine" , "SimpleRandom", "BasicTrailsAI"};
 	private JComboBox<String> playerChooser;
 	
 	public PlayerChoicePanel(String name){
